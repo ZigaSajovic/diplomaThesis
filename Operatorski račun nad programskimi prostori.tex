@@ -55,7 +55,6 @@
 \makeatother
 
 \newcommand{\ed}{e^{h\partial}}
-
 \newcommand{\bfW}{\mathbf{W}}
 \newcommand{\bfw}{\mathbf{w}}
 \newcommand{\bfM}{\mathbf{M}}
@@ -1287,8 +1286,8 @@ Izračun tenzorjev transformacije \eqref{eq:matTrans} baze pa lahko prepustimo u
 
 Čeprav je v našem modelu mogoče konstruirati iteratorje s predstavljenimi operatorji, bomo v tem razdelku predstavili kako se naša teorija vpleta v kontrolne strukture imperativnih jezikov. Primer uporabe takšne vpletenosti je implementacija v $\CC$, ki je predstavljena v razdelku \ref{sec:implementacija}.
 
-Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spreminjajo izvršilno drevo programa. Zato jih interpretiramo kot definicije (odsekoma zveznih) zlepkov. Vsaka kontrolna struktura deli prostor parametrov na različne domene znotraj katerih je izvajanje programa venomer enako. Celoten program deli prostor vseh mogočih parametrov na končen nabor domen $\{\Omega_i;\quad i=1,\ldots
-  k\}$, v katerih je izvajanje programa vedno enako. Zato je v splošnem program lahko definiran kot
+Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spreminjajo izvršilno drevo programa. Zato jih interpretiramo kot definicije (odsekoma zveznih) zlepkov. Vsaka kontrolna struktura deli prostor parametrov na različne domene znotraj katerih je izvajanje programa venomer enako. Celoten program pa deli prostor vseh mogočih parametrov na končen nabor domen $\{\Omega_i;\quad i=1,\ldots
+  k\}$. Zato je v splošnem program lahko definiran kot
 \begin{equation}
    \label{eq:zlrprk_splosno}
    P(\vec{x}) =
@@ -1318,7 +1317,7 @@ Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spremi
   Notranjost vsake domene $\Omega_i$ je odprta. Ker je celotna domena $\Omega=\bigcup\limits_{\forall_i}\interior(\Omega_i)$ unija odprtih množic, je posledično odprta tudi sama. Zatorej so vse evaluacije izvršene v eni od odprtih množici, kar efektivno odstrani robove, kjer bi lahko naleteli na težave. Izrek sledi direktno iz dokaza Izreka $\ref{thm:infDif}$ skozi argument $\eqref{eq:inductionStep}$.
  \end{dokaz}
  
-Vejitev programa v domene $\eqref{eq:zlrprk_splosno}$ se izvede s pogojnimi izjavami. Vsaka pogojna izjava povzroči vejitev v izvršitvenem drevesu programa.
+\noindent Vejitev v domeni programa $\eqref{eq:zlrprk_splosno}$ se izvede s pogojnimi izjavami. Vsaka pogojna izjava povzroči vejitev v izvršilnem drevesu programa.
 
 \begin{trditev}\label{izr:st.zlepkov}
 Kardinalnost množice domen $\Omega=\{\Omega_i\}$ je enaka $\lvert\{\Omega_i
@@ -1416,18 +1415,18 @@ $n$ število vejitev znotraj programa.
 \end{figure}
 \begin{dokaz}
 	Izvorna koda programa $P\in\dP$ je predstavljiva z usmerjenim grafom, kot je razvidno na Sliki $\ref{fig:diagram}$.
-	Vsaka vejitev povzroči delitev v izvršitvenem drevesu, kamor se program po izvršitvi tudi vrne. Po Izreku \ref{izr:kompo} je vsaka od teh vej lahko videna kot program $p_i$, za katerega velja
+	Vsaka vejitev povzroči delitev v izvršitvenem drevesu, kamor se program po izvedbi veje tudi vrne. Po Izreku \ref{izr:kompo} je vsaka od teh vej lahko videna kot program $p_i$, za katerega velja
 	$$e^\D(p_n\circ p_{n-1}\circ\cdots\circ p_1)=e^\D(p_n)\circ e^\D(p_{n-1})\circ\cdots\circ e^\D(p_1)$$ po Izreku $\ref{izr:kompo}$.
 	
 	Zatorej izvorna koda vsebuje $2n$ odvedljivih vej, od prve vejitve dalje, na katere je potrebno aplicirat operator $e^\D$. Z upoštevanjem prve delitve je to skupaj $2n+1$. Po Izreku \ref{thm:infDif}, je vsaka od teh vej analitična.
 \end{dokaz}
 
-Sliki operatorja $e^\D$ in $T_{F\X}$  sta elementa prvotnega prostora $\dP$, ki sta lahko komponirani. Zatorej je za $P=p_3\circ p_2\circ p_1$, slednji izraz smiseln
+Sliki operatorja $e^\D$ in $T_{F\X}$  sta elementa prvotnega programskega prostora $\dP$, in sta lahko komponirani. Zatorej je za $P=p_3\circ p_2\circ p_1$, slednji izraz smiseln
 \begin{equation*}\label{trd:composeOperators}
 P=\Big(p_3\circ e^ \D(p_2)\circ T_{F\X}e^\D(p_1)\Big) \in \dP
 \end{equation*}
 
-Enako velja za vse permutacije aplikacij operatorjev $e^\D$, $T_{F\X}$ in $id$, kot je razvidno v diagramu Slike $\ref{fig:diagram}$.
+\noindent Enako velja za vse permutacije uporab operatorjev $e^\D$, $T_{F\X}$ in $id$, kot je razvidno v diagramu Slike $\ref{fig:diagram}$.
 
 \begin{opomba}
 V praksi vedno uporabljamo projekcije operatorja $e^\D$ na nek končen red $n$, tj. $e^\D_n$. Zato moramo biti pazljivi na veljavnost sledeče relacije
