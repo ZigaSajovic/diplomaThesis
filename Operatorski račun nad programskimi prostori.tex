@@ -164,7 +164,7 @@
 \newtheorem{opomba}{Opomba}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{definicija}{Definicija}[chapter]
-\newtheorem{trditev}{Trditev}[izrek]
+\newtheorem{trditev}{Trditev}[chapter]
 \newenvironment{dokaz}{\emph{Dokaz.}\ }{\hspace{\fill}{$\Box$}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -281,11 +281,8 @@
 \noindent
 {\sc Copyright}. 
 {\small \noindent
-To delo je ponujeno pod licenco \textit{Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 2.5 Slovenija} (ali novej\v so razli\v cico).
-To pomeni, da se tako besedilo, slike, grafi in druge sestavine dela, kot tudi izvorna koda lahko prosto distribuirajo,
-reproducirajo, uporabljajo, priobčujejo javnosti in predelujejo, pod pogojem, da se jasno in vidno navede avtorja in naslov tega
-dela in da se v primeru spremembe, preoblikovanja ali uporabe tega dela v svojem delu, lahko distribuira predelava le pod
-licenco, ki je enaka tej.
+To delo je ponujeno pod licenco \textit{Creative Commons Priznanje avtorstva -- Deljenje pod enakimi pogoji 2.5 Slovenija} (ali novej\v so razli\v cico).
+To pomeni, da se besedilo, slike, grafi in druge sestavine dela ter izvorna koda lahko prosto distribuirajo, reproducirajo, uporabljajo, priobčujejo javnosti in predelujejo pod pogojem, da sta avtor ter naslov tega dela jasno navedena. V primeru spremembe, preoblikovanja in uporabe tega dela v svojem delu se lahko predelava distribuira le pod licenco, ki je enaka tej.
 Podrobnosti licence so dostopne na spletni strani \href{http://creativecommons.si}{creativecommons.si} ali na Inštitutu za
 intelektualno lastnino, Streliška 1, 1000 Ljubljana.
 
@@ -329,7 +326,7 @@ Razvijte algebraični jezik, ki bo deloval kot formalni račun za globoko učenj
 % zahvala
 \thispagestyle{empty}\mbox{}\vfill\null\it%
 \noindent
-Avtor se zahvaljuje Mariu Medvedu podjetja XLAB za vero in podporo pri razvoju ubesedene teorije, Martinu Vuku za potrpežljivost ob izraznih izomorfizmih, Jure Kališniku za preverbo dokazov in Borutu Robiču za vodstvo skozi akademsko življenje.
+Avtor se zahvaljuje Mariu Medvedu iz podjetja XLAB za vero in podporo pri razvoju ubesedene teorije, Martinu Vuku za potrpežljivost ob izraznih izomorfizmih, Juretu Kališniku za preverbo dokazov ter Borutu Robiču za vodstvo skozi akademsko življenje.
 \rm\normalfont
 
 % prazna stran
@@ -368,11 +365,11 @@ Za Barbi.
 
 %\noindent\textbf{Povzetek:} 
 \noindent
-V delu razvijemo algebraični jezik, ki predstavlja formalen račun za globoko učenje, in je hkrati model, v katerem je programe mogoče tako implementirati kot tudi preučevati.
+V delu razvijemo algebraični jezik, ki predstavlja formalni račun za globoko učenje, in je hkrati model, v katerem je programe mogoče tako implementirati kot tudi preučevati.
 
-V ta namen razvijemo abstrakten \emph{računski model avtomatsko odvedljivih programov}. V njem so programi elementi t.i. \emph{programskih prostorov}. Programe gledamo kot preslikave končno-dimenzionalnega vektorskega prostora vase, imenovanega \emph{navidezni pomnilniški prostor}. Navidezni pomnilniški prostor je algebra programov, torej \emph{algebraična podatkovna struktura} (s katero je mogoče računati). Elementi navideznega pomnilniškega prostora pa omogočajo razvoj programov v neskončne tenzorske vrste. Na programskih prostorih definiramo \emph{operator odvajanja}, s pomočjo njegovih potenc pa implementiramo \emph{posplošen operator premika} in \emph{operator kompozicije} programov.
+V ta namen razvijemo abstraktni \emph{računski model avtomatsko odvedljivih programov}. V njem so programi elementi t. i. \emph{programskih prostorov}. Programe gledamo kot preslikave končno-dimenzionalnega vektorskega prostora vase, imenovanega \emph{navidezni pomnilniški prostor}. Navidezni pomnilniški prostor je algebra programov, torej \emph{algebraična podatkovna struktura} (s katero je mogoče računati). Elementi navideznega pomnilniškega prostora pa omogočajo razvoj programov v neskončne tenzorske vrste. Na programskih prostorih definiramo \emph{operator odvajanja}, s pomočjo njegovih potenc pa implementiramo \emph{posplošen operator premika} in \emph{operator kompozicije} programov.
 
-Tako konstruiran algebraični jezik je poln model globokega učenja. Omogoča tak način izražanja programov, da že njihov zapis nudi teoretični vpogled vanje.
+Tako konstruiran algebraični jezik je poln model globokega učenja. Omogoča takšen način izražanja programov, da že njihov zapis nudi teoretični vpogled vanje.
 
 \bigskip
 
@@ -414,19 +411,19 @@ The algebraic language constructed in this way is a complete model of deep learn
 
 \chapter{Uvod}
 
-Zaradi diskretne narave računalniške znanosti prihaja do vrzeli med matematično analizo in programiranjem. Medtem ko se je algebra že vpletla v veje programiranja preko algebraičnih podatkovnih tipov funkcijskih jezikov, njena uporaba ostaja predvsem v problemih, ki so diskretni in kombinatorični. A zaradi hitrosti razvoja strojnega in globokega učenja se pojavlja potreba po modelih programiranja, ki bi omogočali obravnavo (odsekoma) zveznih in odvedljivih programskih struktur \cite{AdSurvey}. Tej potrebi delno že zadoščajo sodobne metode avtomatskega odvajanja. Te metode omogočajo učinkovit izračun odvodov matematičnih funkcij implementiranih v obliki računalniških programov \cite{AD1}. Vendar pa ne omogočajo algebraičnega manipuliranja s programi in tako tudi ne vplivajo na bistvo polemike o razkolu (ki je v nezmožnosti algebraičnega manipuliranja odvedljivih programov).
+Zaradi diskretne narave računalniške znanosti prihaja do vrzeli med matematično analizo in programiranjem. Medtem ko se je algebra že vpletla v veje programiranja preko algebraičnih podatkovnih tipov funkcijskih jezikov, njena uporaba ostaja predvsem v problemih, ki so diskretni in kombinatorični. A zaradi hitrosti razvoja strojnega in globokega učenja se pojavlja potreba po modelih programiranja, ki bi omogočali obravnavo (odsekoma) zveznih in odvedljivih programskih struktur \cite{AdSurvey}. Tej potrebi delno že zadoščajo sodobne metode avtomatskega odvajanja. Te metode omogočajo učinkovit izračun odvodov matematičnih funkcij, implementiranih v obliki računalniških programov \cite{AD1}. Vendar pa ne omogočajo algebraičnega manipuliranja s programi in tako tudi ne vplivajo na bistvo polemike o razkolu (ki je v nezmožnosti algebraičnega manipuliranja odvedljivih programov).
 
-Namen tega dela je zapolniti vrzel med programiranjem in analizo, ki je značilno za trenutno stanje \cite{AD2}. 
+Namen tega dela je zapolniti vrzel med programiranjem in analizo, ki je značilna za trenutno stanje \cite{AD2}. 
 
-V drugem poglavju (\emph{\nameref{ch:MotivacijaInOzadje}}) bomo predstavili, kako lahko \emph{delno} prevedemo \emph{algebraične podatkovne tipe} funkcijskih jezikov (kot npr. Haskell) v vsote in produkte elementov neke algebraične strukture. Razgalili bomo probleme v teh jezikih, ki so razlog, da je prevajanje le \emph{delno}. Izpostavili bomo tudi slabost \emph{globokega učenja}, kjer zaradi pomanjkanja formalnega aparata obravnava poteka predvsem empirično in s tem utemeljili potrebo po rezultatih našega dela. Opisali bomo tudi pomen našega dela za področje \emph{avtomatskega odvajanja} programov, ki je v splošni uporabi v uporabnem računalništvu (npr. v inženiringu, simulacijah).
+V drugem poglavju (\emph{\nameref{ch:MotivacijaInOzadje}}) bomo predstavili, kako lahko \emph{delno} prevedemo \emph{algebraične podatkovne tipe} funkcijskih jezikov (kot npr. Haskell) v vsote in produkte elementov neke algebraične strukture. Razgalili bomo probleme v teh jezikih, ki so razlog, da je prevajanje le \emph{delno}. Izpostavili bomo tudi slabost \emph{globokega učenja}, kjer zaradi pomanjkanja formalnega aparata obravnava poteka predvsem empirično in s tem utemeljili potrebo po rezultatih svojega dela. Opisali bomo tudi pomen svojega dela za področje \emph{avtomatskega odvajanja} programov, ki je v splošni uporabi v uporabnem računalništvu (npr. v inženiringu, simulacijah).
 
-V tretjem poglavju (\emph{\nameref{ch:programskiProstori}}) pričnemo z vzpostavitvijo potrebnih objektov za konstrukcijo takega algebraičnega jezika. Programe interpretiramo kot preslikave vektorskih prostorov vase in na podlagi take interpretacije definiramo \emph{avtomatsko odvedljive programe}. 
+V tretjem poglavju (\emph{\nameref{ch:programskiProstori}}) pričnemo z vzpostavitvijo potrebnih objektov za konstrukcijo takšnega algebraičnega jezika. Programe interpretiramo kot preslikave vektorskih prostorov vase in na podlagi takšne interpretacije definiramo \emph{avtomatsko odvedljive programe}. 
 
-Naš računski model razširimo v četrtem poglavju (\emph{\nameref{ch:OdvProgPros}}), ko konstruiramo \emph{navidezni pomnilniški prostor}. Slednji deluje kot \emph{algebraična podatkovna struktura}, tj. podatkovna struktura, s katero se da računati. Tako podatkovno strukturo potrebujemo za konstrukcijo t.i. \emph{odvedljivih programskih prostorov}, katere strogo definiramo in dokažemo potrebne izreke o njihovi zaprtosti. Poglavje zaključimo z definicijo \emph{navideznih tenzorskih strojev}, ki konstruirajo odvedljive programske prostore, in z \emph{implementacijo} odvedljive različice jezika $\CC$, ki je dostopna na avtorjevi GitHub strani \cite{dC++}.
+Svoj računski model razširimo v četrtem poglavju (\emph{\nameref{ch:OdvProgPros}}), ko konstruiramo \emph{navidezni pomnilniški prostor}. Slednji deluje kot \emph{algebraična podatkovna struktura}, tj. podatkovna struktura, s katero se da računati. Tako podatkovno strukturo potrebujemo za konstrukcijo t. i. \emph{odvedljivih programskih prostorov}, ki jih strogo definiramo in dokažemo potrebne izreke o njihovi zaprtosti. Poglavje zaključimo z definicijo \emph{navideznih tenzorskih strojev}, ki konstruirajo odvedljive programske prostore, in z \emph{implementacijo} odvedljive različice jezika $\CC$, ki je dostopna na avtorjevi strani \cite{dC++}.
 
-V petem poglavju (\emph{\nameref{ch:opRac}}) na podlagi prej vpeljanih programskih prostorov razvijemo algebraični jezik, ki deluje kot formalni račun globokega učenja in je hkrati model, v katerem je programe mogoče tako implementirati kot tudi preučevati. Nato izpeljemo splošen \emph{razvoj programov v tenzorsko vrsto}, ter izpeljemo še operatorja \emph{premika} in \emph{kompozicije} programov. Slednja omogočata konstrukcijo iteratorjev in komponerjev. Pokažemo, kako vsi ti operatorji delujejo kot abstrakcije, ki omogočajo, da se izračune opravi samo z operatorji preden te apliciramo na konkreten program - s tem se izognemo delu s tenzorskimi vrstami. 
+V petem poglavju (\emph{\nameref{ch:opRac}}) na podlagi prej vpeljanih programskih prostorov razvijemo algebraični jezik, ki deluje kot formalni račun globokega učenja in je hkrati model, v katerem je programe mogoče tako implementirati kot tudi preučevati. Nato izpeljemo splošni \emph{razvoj programov v tenzorsko vrsto} ter izpeljemo še operatorja \emph{premika} in \emph{kompozicije} programov. Slednja omogočata konstrukcijo iteratorjev in komponerjev. Pokažemo, kako vsi ti operatorji delujejo kot abstrakcije, ki omogočajo, da se izračuni opravijo samo z operatorji, preden te apliciramo na konkretni program -- s tem se izognemo delu s tenzorskimi vrstami. 
 Nato razvijemo preslikavo redukcije reda in s tem rešimo problem gnezdenega odvajanja \cite{AD2}, saj omogoča implementacije programov, ki operirajo na odvedljivih odvodih drugih programov.
-Z vpeljanimi operatorji pokažemo, da naša teorija uvaja poln (samozadosten) model globokega učenja. Ta model omogoča tak način izražanja programov, da že njihov zapis razgalja njihove lastnosti. Poglavje zaključimo z obravnavo pomena naše teorije za kontrolne strukture ter z napotki za uporabo teorije v praksi.
+Z vpeljanimi operatorji pokažemo, da naša teorija uvaja poln (samozadosten) model globokega učenja. Ta model omogoča tak način izražanja programov, da že njihov zapis razgalja njihove lastnosti. Poglavje zaključimo z obravnavo pomena svoje teorije za kontrolne strukture in z napotki za uporabo teorije v praksi.
 
 Diplomsko delo temelji na avtorjevih člankih \cite{opCalProg} \cite{dC++Paper} in delu \cite{dC++}\cite{dC++Man}, kamor bralca usmerimo v zaključnem poglavju (\emph{\nameref{ch:zakSklp}}), v katerem navedemo možnosti, ki jih izpeljana teorija še ponuja.
 
@@ -437,8 +434,8 @@ Diplomsko delo temelji na avtorjevih člankih \cite{opCalProg} \cite{dC++Paper} 
 ``Von Neumann languages do not have useful properties for reasoning about programs. Axiomatic and denotational semantics are precise tools for describing and understanding conventional programs, but they only talk about them and cannot alter their ungainly properties. Unlike von Neumann languages, the language of ordinary algebra is suitable both for stating its laws and for transforming an equation into its solution, all within the language.''
 \end{chapquote}
 
-Po prejetju Turingove nagrade leta 1977 za delo na prevajalniku za programski jezik Fortran je imel John Backus svoje slavno predavanje, kot nekakšno opravičilo za svoje delo. Namreč, v predavanju je kritiziral von Neumannove jezike (katerih predstavnik je ravno Fortran), kot tudi von Neumannovo računalniško arhitekturo. Toda segel je še globlje in se obregnil ob neobstoj nekakšne algebre programov, ki bi programskim jezikom omogočala, da bi sklepali o programih, katere implementirajo \cite{backus}.
-V prihodnjih letih je računalniška znanost pričela z raziskavami Backusovih skrbi. Njegovo skrb glede zaporednega izvajanja, tj. von Neumannovega ozkega grla, dodobra naslavljajo nedavni napredki na področju strojne opreme in arhitekture, ki danes streže tudi globokem učenju (npr. Nvidia, Google TPU). Vendar njegova skrb algebraičnega obravnavanja programov še vedno tli, čeprav jeziki, kot je Haskell, s pomočjo teorije kategorij implementirajo algebraične podatkovne tipe. Povezavo takih podatkovnih tipov s klasično algebro, ter njihove pomanjkljivosti bomo spoznali v razdelku \ref{algTp}.
+Po prejetju Turingove nagrade leta 1977 za delo na prevajalniku za programski jezik Fortran je imel John Backus svoje znamenito predavanje, kot nekakšno opravičilo za svoje delo. Namreč, v predavanju je kritiziral von Neumannove jezike (katerih predstavnik je ravno Fortran), in tudi von Neumannovo računalniško arhitekturo. Toda segel je še globlje in se obregnil ob neobstoj nekakšne algebre programov, ki bi programskim jezikom omogočala, da bi sklepali o programih, ki jih implementirajo \cite{backus}.
+V prihodnjih letih je računalniška znanost pričela z raziskavami Backusovih skrbi. Njegovo skrb glede zaporednega izvajanja, tj. von Neumannovega ozkega grla, dodobra naslavljajo nedavni napredki na področju strojne opreme in arhitekture, ki danes streže tudi globokemu učenju (npr. Nvidia, Google TPU). Vendar njegova skrb algebraičnega obravnavanja programov še vedno tli, čeprav jeziki, kot je Haskell, s pomočjo teorije kategorij implementirajo algebraične podatkovne tipe. Povezavo takih podatkovnih tipov s klasično algebro in njihove pomanjkljivosti bomo spoznali v razdelku \ref{algTp}.
 
 Globoko učenje je programska paradigma, ki zaradi svoje algebraične naravnanosti ponuja možnost formalizma, ki naslavlja obe Backusovi skrbi. Trenutno je globoko učenje še vedno v pomanjkanju formalizma, zato večinoma temelji na empiričnih spoznanjih. Področje bomo na kratko spoznali v razdelku \ref{sec:deepLearning} in izpostavili to pomanjkanje formalizma.
 Razvoj algebraičnega jezika, ki vsebuje globoko učenje, je plod avtorjevega dela zadnjih let \cite{opCalProg} \cite{dC++Paper}. Ker je področje prežeto z gradienti in Jacobiani, je področje soočeno s potrebo po jeziku, ki bi omogočal sklepanje o analitičnih lastnostih programov zgolj z uporabo algebraičnih prijemov. Kot bomo videli, tej potrebi lahko zadostimo z uporabo tenzorske algebre in operatorskega računa, predstavljenega v našem delu.
@@ -446,9 +443,9 @@ Tak formalizem pa je tudi orodje, ki presega globoko učenje in teoretična preu
 
 \section{Algebra algebraičnih podatkovnih tipov}\label{algTp}
 
-Predmet tega razdelka je algebra algebraičnih podatkovnih tipov ter njene lastnosti in pomanjkljivosti, ki jih bomo za lažje razumevanje prikazali na primeru Haskella. Slednje je povzeto po zapisih \cite{algTip}.
+Predmet tega razdelka je algebra algebraičnih podatkovnih tipov in njene lastnosti ter pomanjkljivosti, ki jih bomo za lažje razumevanje prikazali na primeru Haskella. Slednje je povzeto po zapisih \cite{algTip}.
 
-V splošnem je algebrska struktura množica objektov ter operacij nad njimi, ki omogočajo transformacije teh objektov v nove objekte. V algebri tipov jezika Haskell so objekti podatkovni tipi, denimo \emph{Bool} in \emph{Int}, operacije pa gradijo iz danih tipov nove, kompleksnejše tipe. Primer je konstruktor \emph{Either}, ki izgradi nov tip \emph{Either Bool Int} iz tipov Bool in Int.
+V splošnem je algebrska struktura množica objektov in operacij nad njimi, ki omogočajo transformacije teh objektov v nove objekte. V algebri tipov jezika Haskell so objekti podatkovni tipi, denimo \emph{Bool} in \emph{Int}, operacije pa gradijo iz danih tipov nove, kompleksnejše tipe. Primer je konstruktor \emph{Either}, ki izgradi nov tip \emph{Either Bool Int} iz tipov Bool in Int.
 
 \subsection{Operacije}
 
@@ -456,7 +453,7 @@ V splošnem je algebrska struktura množica objektov ter operacij nad njimi, ki 
 
 Povezavo z algebro števil lahko vzpostavimo s preštevanjem možnih vrednosti, ki jih tip lahko zasede. Na primeru \emph{Bool}, definiranim z
 $$data\text{ }Bool = False\text{ }\vert \text{ }True,$$
-to pomeni, da lahko tip \emph{Bool} zasede dve vrednosti. (Lahko bi zasedel tudi \emph{undefined}, a tej vrednosti se v prid razlagi izognemo). Tako prispemo do nove definicije.
+to pomeni, da lahko tip \emph{Bool} zasede dve vrednosti (lahko bi zasedel tudi \emph{undefined}, a tej vrednosti se v prid razlagi izognemo). Tako prispemo do nove definicije.
 \begin{definicija}[Izomorfnost tipov]\label{def:iso}
 Izomorfnost ($===$) dveh tipov $Type_1$ in $Type_2$ definiramo s
 $$Type_1===Type_2 \iff \vert Type_1\vert = \vert Type_2\vert,$$
@@ -466,7 +463,7 @@ kjer $\vert Type\vert$ označuje število vrednosti, ki jih tip lahko zaseda.
 $$Bool === 2,$$
 kar bomo podrobneje razjasnili, ko bomo spoznali aditivne tipe.
 
-Če je \emph{Bool} enak $2$, čemu je enaka $1$? V literaturi so takšni objekti navadno poimenovani z \emph{Unit}; v Haskell je Unit označen z \emph{()}.
+Če je \emph{Bool} enak $2$, čemu je enaka $1$? V literaturi so takšni objekti navadno poimenovani z \emph{Unit}; v Haskellu je Unit označen z \emph{()}.
 
 \subsubsection{Vsota}
 
@@ -478,17 +475,17 @@ Torej, tip $Add\text{ }a\text{ }b$ je oblika unije\footnote{ang. tagged union}, 
 
 Če sta $a$ in $b$ tipa, potem je tip $Mul\text{ }a\text{ }b$, ki ustreza njunemu produktu, definiran z
 $$data\text{ }Mul\text{ }a\text{ }b=Mul\text{ }a\text{ }b.$$
-Torej, tip $Mul\text{ }a\text{ }b$ je zbirnik, ki drži tako $a$, kot $b$. Zakaj tip $Mul\text{ }a\text{ }b$ ustreza produktu $a\cdot b$ tipov $a$ in $b$ je razvidno iz preštevanja. Na primer, $Mul\text{ }Bool\text{ }Bool$ vsebuje $\vert Bool\vert\cdot\vert Bool\vert=2\cdot 2=4$ vrednosti.  V Haskellu je tipu $Mul\text{ }a\text{ }b$ izomorfen tip \emph{(a.b)}, a v našem delu je primernejše poimenovanje \emph{Mul}.
+Torej, tip $Mul\text{ }a\text{ }b$ je zbirnik, ki drži tako $a$ kot $b$. Zakaj tip $Mul\text{ }a\text{ }b$ ustreza produktu $a\cdot b$ tipov $a$ in $b$, je razvidno iz preštevanja. Na primer, $Mul\text{ }Bool\text{ }Bool$ vsebuje $\vert Bool\vert\cdot\vert Bool\vert=2\cdot 2=4$ vrednosti.  V Haskellu je tipu $Mul\text{ }a\text{ }b$ izomorfen tip \emph{(a.b)}, a v našem delu je primernejše poimenovanje \emph{Mul}.
 
-\subsubsection{Ničla - identiteta za operacijo vsote}
+\subsubsection{Ničla -- identiteta za operacijo vsote}
 
 Z vsoto in produktom lahko iz tipa \emph{Unit} generiramo tipe, ki ustrezajo pozitivnim celim številom. Še vedno pa manjka tip, ki bi ustrezal številu $0$, torej tip brez vrednosti. Tak tip definiramo z
 $$data\text{ \emph{Void}}.$$
-Ker definicija ne vsebuje konstruktorja, vrednosti tipa \emph{Void} ni mogoče konstruirati - to pomeni, da ima \emph{nič} vrednosti.
+Ker definicija ne vsebuje konstruktorja, vrednosti tipa \emph{Void} ni mogoče konstruirati -- to pomeni, da ima \emph{nič} vrednosti.
 
 \subsection{Zakoni v algebri tipov}
 
-Kakor v algebri števil, tudi v algebri tipov zakoni določajo enakost dveh objektov (po definiciji enakosti \ref{def:iso}). V prid jasnosti navajamo primer implementacije izomorfizma
+Kakor v algebri števil, tudi v algebri tipov zakoni določajo enakost dveh objektov (po definiciji enakosti \ref{def:iso}). V korist jasnosti navajamo primer implementacije izomorfizma
 $$Bool===Add\text{ }()\text{ } (),$$
 ki jo vidimo na sliki \ref{code:iso}.
 
@@ -512,7 +509,7 @@ Navajamo primer dveh zakonov vsote tipov.
 
 \noindent Prvi veli
 $$Add\text{ \emph{Void}}\text{ \emph{a}}===\text{\emph{a}},$$
-da ima tip \emph{Add Void a} toliko vrednosti, kot tip \emph{a}. 
+da ima tip \emph{Add Void a} toliko vrednosti kot tip \emph{a}. 
 
 \noindent Drugi veli
 $$Add\text{ }a\text{ }b===Add\text{ }b\text{ }a,$$
@@ -520,7 +517,7 @@ da je vrstni red operandov nepomemben.
 
 \noindent Oba zakona sta bralcu verjetno bolj poznana iz algebre števil, kjer se glasita
 $$0+a=a,$$
-ter
+in
 $$a+b=b+a.$$
 Zakona za algebro tipov bi lahko dokazali s konstrukcijo, kot je bilo storjeno na sliki \ref{code:iso}, a to prepuščamo bralcu.
 
@@ -553,7 +550,7 @@ $$a\cdot(b+c)=a\cdot b+a\cdot c.$$
 
 Ob konkretnih tipih, kot sta \emph{Int} in \emph{Bool}, poznamo tudi funkcijske tipe, denimo \emph{Int $\to$ Bool}. V algebro tipov jih umestimo preko preštevanja. Koliko funkcij tipa \emph{a $\to$ b} obstaja? Za pojasnitev navajamo primer. Vzemimo tip s tremi vrednostmi,
 $$data\text{ }Trio=prvi\text{ }\vert\text{ } drugi\text{ }\vert\text{ } tretji,$$
-ter preštejmo vse funkcije tipa
+in preštejmo vse funkcije tipa
 $$Trio\to Bool.$$
 Po kratkem razmisleku je očitno, da je teh funkcij $\vert Bool\vert^{\vert Trio\vert}=2^3=8$, oziroma v splošnem
 $$\vert B^A\vert=\vert B\vert^{\vert A\vert},$$
@@ -569,17 +566,17 @@ da je toliko funkcij tipa \emph{()$\to$a}, kot je vrednosti tipa \emph{a}.
 
 \noindent Drugi veli
 $$a\to ()=== (),$$
-da obstaja natanko ena funkcija tipa \emph{a $\to$ ()}; označimo jo z \emph{const ()}. 
+da obstaja natanko ena funkcija tipa \emph{a $\to$ ()}; označimo jo s \emph{const ()}. 
 
 \noindent V algebri števil sta to zakona
 $$a^1=a,$$
-ter
+in
 $$1^a=1.$$
 Obstaja pa tudi zakon, ki dovoljuje faktorizacijo skupnih argumentov. Označimo z $(a\to b, a\to c)$ urejen par dveh funkcijskih tipov $a\to b$ in $a\to c$. Potem zakon pravi
 $$(a\to b, a\to c)===a\to(b,c),$$
 kjer $a\to(b,c)$ označuje funkcijski tip, ki slika iz $a$ v urejen par $(b,c)$. V algebri števil je ustrezni zakon
 $$b^a\cdot c^a=(b\cdot c)^a.$$
-Obstaja pa tudi zakon o funkcijah, ki vračajo funkcije:
+Prav tako obstaja zakon o funkcijah, ki vračajo funkcije:
 $$a\to (b\to c)===(b,a)\to c,$$
 katerega oblika v algebri števil je
 $$(c^b)^a=c^{b\cdot a}.$$
@@ -590,12 +587,12 @@ V prejšnjem razdelku smo vpeljali operacije nad tipi ter navedli njihove osnovn
 
 \subsubsection{Seznami}
 
-Ena od osnovnejših struktur večine programskih jezikov je \emph{seznam}. Seznam \emph{L a} objektov tipa \emph{a} je bodisi prazen (\emph{None}), ali pa je sestavljen iz objekta tipa \emph{a}, ki je pripet na obstoječ seznam tipa \emph{a}. To rekurzivno (induktivno) definicijo na kratko izrazimo z
+Ena osnovnejših struktur večine programskih jezikov je \emph{seznam}. Seznam \emph{L a} objektov tipa \emph{a} je bodisi prazen (\emph{None}) ali pa je sestavljen iz objekta tipa \emph{a}, ki je pripet na obstoječ seznam tipa \emph{a}. To rekurzivno (induktivno) definicijo na kratko izrazimo z
 \begin{equation}
 data\text{ }L\text{ }a=None\text{ }\vert\text{ } a\text{ }(L\text{ }a). \label{eq:listHaskell}
 \end{equation}
 
-V algebri tipov vpeljani v prejšnjih razdelkih, seznam izrazimo kot
+V algebri tipov, vpeljani v prejšnjih razdelkih, seznam izrazimo kot
 $$L(a)=1+a\cdot L(a).$$
 Enačbo lahko pričnemo razvijati, kjer bomo izraze tipa $a\cdot a$ nadomestili z $a^2$:
 \begin{eqnarray}
@@ -604,9 +601,9 @@ L(a)&=& 1+a\cdot(1+a\cdot L(a))\nonumber\\
 L(a)&=& 1+a+a^2\cdot(1+a\cdot L(a))\nonumber\\
 L(a)&=& 1+a+a^2+a^3+\cdots. \label{eq:listEnd}
 \end{eqnarray}
-Izraz \eqref{eq:listEnd} pravi da obstaja natanko en prazen seznam (člen $1$), natanko en seznam z enim elementom (člen $a$), natanko en seznam z dvema elementoma (člen $a^2$), itd.
+Izraz \eqref{eq:listEnd} pravi, da obstaja natanko en prazen seznam (člen $1$), natanko en seznam z enim elementom (člen $a$), natanko en seznam z dvema elementoma (člen $a^2$), itd.
 
-Poznavanje rodovnih funkcij in formalnih potenčnih vrst nam (skupaj z zakoni prejšnjega razdelka) omogoča tudi drug način kodiranja informacije zapisane v izrazu \eqref{eq:listHaskell}:
+Poznavanje rodovnih funkcij in formalnih potenčnih vrst nam (skupaj z zakoni prejšnjega razdelka) omogoča tudi drug način kodiranja informacije, zapisane v izrazu \eqref{eq:listHaskell}:
 $$L(a)=1+a\cdot L(a)$$
 $$\implies$$
 \begin{equation}
@@ -614,13 +611,13 @@ L(a)=\frac{1}{1-a}\label{eq:listE}
 \end{equation}
 $$\implies$$
 $$L(a)=\sum\limits_{i=0}^\infty a^i,$$
-kar je identično dognanje kot rekurzivni razvoj v \eqref{eq:listEnd}. Tukaj poudarimo, da so algebraične manipulacije v \eqref{eq:listE} dovoljene, saj gre le za drug način kodiranja iste informacije. Pri splošnih algebraičnih manipulacijah tipov, kjer z manipuliranjem enakosti izražamo nove enakosti (ne le druge oblike začetnih enakosti) lahko naletimo na težave; to bomo spoznali v razdelku \ref{ch:algMani}.
+kar je identično dognanje kot rekurzivni razvoj v \eqref{eq:listEnd}. Tukaj poudarimo, da so algebraične manipulacije v \eqref{eq:listE} dovoljene, saj gre le za drug način kodiranja iste informacije. Pri splošnih algebraičnih manipulacijah tipov, kjer z manipuliranjem enakosti izražamo nove enakosti (ne le druge oblike začetnih enakosti), lahko naletimo na težave; to bomo spoznali v razdelku \ref{ch:algMani}.
 
 \subsubsection{Dvojiška drevesa}
 
 V gramatiki jezika Haskell je dvojiško drevo \emph{T} z vrednostmi v vozliščih:
 \begin{equation}\label{eq:binT}
-data\text{ }T\text{ } a = None \text{ }|\text{ } Node\text{ } a\text{ } (T\text{ } a)\text{ }(T\text{ }a)
+data\text{ }T\text{ } a = None \text{ }|\text{ } Node\text{ } a\text{ } (T\text{ } a)\text{ }(T\text{ }a).
 \end{equation}
 
 \noindent V naši algebri tipov izraz \eqref{eq:binT} postane vsota dveh tipov: tipa \emph{None}, ki je ekvivalenten (po definiciji \ref{def:iso}) tipu \emph{()}, in produkta tipov. Tokrat gre za produkt \emph{treh} tipov, vendar je ta le gnezden produkt \emph{(a, (b, c))}.
@@ -630,15 +627,15 @@ data\text{ }T\text{ } a = None \text{ }|\text{ } Node\text{ } a\text{ } (T\text{
 \label{eq:binTe}
 T(a)=1+a\cdot T(a)^2,
 \end{equation}
-torej z kvadratno enačbo \eqref{eq:binTe}. Do njene rešitve bi se lahko dokopali podobno kot v računu \eqref{eq:list} s substitucijo, a poskusimo lahko tudi z algebro tipov, kot smo storili v računu \eqref{eq:listE}. Tedaj je rešitev kvadratne enačbe \eqref{eq:binTe}
+torej s kvadratno enačbo \eqref{eq:binTe}. Do njene rešitve bi se lahko dokopali podobno kot v računu \eqref{eq:list} s substitucijo, a poskusimo lahko tudi z algebro tipov, kot smo storili v računu \eqref{eq:listE}. Tedaj je rešitev kvadratne enačbe \eqref{eq:binTe}
 \begin{equation}
 T(a)=\frac{1-\sqrt{1-4\cdot a}}{2\cdot a}, \label{eq:binTeQ}
 \end{equation}
-izraz, ki ga spet razumemo le kot način kodiranja informacije, in ki ga razčlenimo v Taylorjevo vrsto
+izraz, ki ga spet razumemo le kot način kodiranja informacije in ki ga razčlenimo v Taylorjevo vrsto
 \begin{equation}
 T(a)=1\cdot a^0+1\cdot a+2\cdot a^2 + 5\cdot a^3+ 14\cdot a^4 + 42\cdot a^5\cdots \label{eq:binExp}
 \end{equation}
-Zadnji izraz nam daje informacijo, da obstaja: \emph{eno prazno} dvojiško drevo (člen $1\cdot a^0$), \emph{eno} dvojiško drevo \emph{s po enim vozliščem} (člen $1\cdot a$), \emph{dve} dvojiški drevesi \emph{s po dvema vozliščema} (člen $2\cdot a^2$), \emph{pet} dvojiških dreves \emph{s po tremi vozlišči} (člen $5\cdot a^3$), $\dots$, kot je prikazano na sliki \ref{fig:trees} in tudi v \cite{analComb}.
+Zadnji izraz nam daje informacijo, da obstaja: \emph{eno prazno} dvojiško drevo (člen $1\cdot a^0$), \emph{eno} dvojiško drevo \emph{s po enim vozliščem} (člen $1\cdot a$), \emph{dve} dvojiški drevesi \emph{s po dvema vozliščema} (člen $2\cdot a^2$), \emph{pet} dvojiških dreves \emph{s po tremi vozlišči} (člen $5\cdot a^3$) $\dots$, kot je prikazano na sliki \ref{fig:trees} in tudi v \cite{analComb}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=\linewidth]{imgs/bintrees.png}
@@ -652,9 +649,9 @@ Izraz \eqref{eq:binExp} torej prešteva različne vrste dvojiških dreves. Ta la
 
 \subsection{Algebraične manipulacije}\label{ch:algMani}
 
-Namen algebraičnega manipuliranja enakosti je, da bi izpeljali nova spoznanja. Vprašanje pa je, ali lahko s tipi računamo tako svobodno kot smo vajeni iz algebre števil, ne pa le da neko enakost izrazimo v drugi obliki, kot smo enakost \eqref{eq:binTe} izrazili kot \eqref{eq:binTeQ}. Odgovor je ne, razlogi pa sledeči.
+Namen algebraičnega manipuliranja enakosti je, da bi izpeljali nova spoznanja. Vprašanje pa je, ali lahko s tipi računamo tako svobodno kot smo vajeni iz algebre števil, ne pa le, da neko enakost izrazimo v drugi obliki, kot smo enakost \eqref{eq:binTe} izrazili kot \eqref{eq:binTeQ}. Odgovor je ne, razlogi pa sledeči.
 
-Zaradi neobstoja negativnih tipov, gre v primeru algebraičnih podatkovnih tipov za polkolobar (tj. kolobar brez inverzov). Zato moramo poznati podrobnosti ustreznih algebrskih struktur, da vemo, katere algebraične manipulacije na tipih so legalne (in kdaj). Vemo naslednje \cite{complexCat}: 
+Zaradi neobstoja negativnih tipov gre v primeru algebraičnih podatkovnih tipov za polkolobar (tj. kolobar brez inverzov). Zato moramo poznati podrobnosti ustreznih algebrskih struktur, da vemo, katere algebraične manipulacije na tipih so legalne (in kdaj). Vemo naslednje \cite{complexCat}: 
 
 \noindent Če pričnemo z enakostjo med kompleksnim številom $t\in\mathbb{C}$ in poljubnim polinomom $p(t)$ s kompleksnimi koeficienti
 $$t=p(t),$$
@@ -664,12 +661,12 @@ kjer $q_1$ in $q_2$ nista konstanti, potem so te manipulacije legalne tudi v kat
 
 Navedimo dva primera algebraičnih manipulacij. Iz enakosti \eqref{eq:binTe} lahko z manipulacijami razvijemo enakost
 $$T(a)^7=T(a),$$
-ki veli, da je sedmerec dvojiških dreves izomorfen enemu samemu dvojiškemu drevesu. Na prvi pogled to ni posebno globok rezultat, saj sta obe množici števno neskončni. A obstaja eksplicitna bijekcija med množicama, kot je pokazano v \cite{7Trees}, kjer  avtor pokaže, da za bijekcijo ni potrebno gledati globlje od štirih nivojev drevesa. Rezultat algebraičnih manipulacij je veljaven (legalen), saj obstaja izpeljava brez uporabe inverzov.
+ki veli, da je sedmerec dvojiških dreves izomorfen enemu samemu dvojiškemu drevesu. Na prvi pogled to ni posebno globok rezultat, saj sta obe množici števno neskončni. A obstaja eksplicitna bijekcija med množicama, kot je pokazano v \cite{7Trees}, kjer  avtor pokaže, da za bijekcijo ni treba gledati globlje od štirih nivojev drevesa. Rezultat algebraičnih manipulacij je veljaven (legalen), saj obstaja izpeljava brez uporabe inverzov.
 A, če obe strani enačbe delimo s $T$, pridemo do enakosti
 $$T(a)^6=1,$$
 ki veli, da je šesterec dvojiških dreves izomorfen enoti (tj. \emph{Unit}). To pa je očiten nesmisel in manipulacij ni mogoče predrugačiti v takšne, ki ne bi vsebovale inverzov.
 
-Skozi naštete razloge vidimo veliko pomanjkljivost algebre algebraičnih tipov: 
+V naštetih razlogih vidimo veliko pomanjkljivost algebre algebraičnih tipov: 
 \emph{pri manipuliranju z enakostmi zahteva dobro poznavanje zakonitosti algebrskih struktur}. Zato se bomo s tretjim poglavjem (\nameref{ch:programskiProstori}) lotili konstrukcije modela, ki bo vseboval inverze in zato omogočal algebraične manipulacije, kot jih je bralec vajen iz algebre števil. Model bo slonel na paradigmi globokega učenja, ki jo spoznamo v naslednjem razdelku \ref{sec:deepLearning}.
 
 
@@ -677,7 +674,7 @@ Skozi naštete razloge vidimo veliko pomanjkljivost algebre algebraičnih tipov:
 
 Globoko učenje je uporaba umetnih nevronskih mrež za učenje nalog. Nevronska mreža je definirana z rekurzivno enačbo
 $$L^{i+1}=\phi_i(W_i\cdot L^i +b_i),$$
-kjer je $L^i$ izhod $i$-tega nivoja, $W_i$ in $b_i$ sta uteži in pristranost (ang. bias), operacija $\cdot$ pa bilinearna operacija (kot denimo tenzorska kontrakcija, ali pa konvolucija), $\phi_i$ pa aktivacijska (ne-linearna) funkcija. Obstaja množica različnih arhitektur \cite{ConvNet}\cite{LSTM}\cite{resNet}, katere so polne po Turingu, če omogočajo rekurzijo \cite{DLbook}. V zadnjih letih se je globoko učenje izkazalo na široki paleti problemov, od prepoznave slik \cite{fasterRCNN}, sledenja \cite{trackNet}, generiranje besedil, govora in slik \cite{genText}, obravnavanja naravnega jezika \cite{NLP}, itd.
+kjer je $L^i$ izhod $i$-tega nivoja, $W_i$ in $b_i$ sta uteži in pristranost (ang. bias), operacija $\cdot$ pa bilinearna operacija (kot denimo tenzorska kontrakcija ali konvolucija), $\phi_i$ pa aktivacijska (ne-linearna) funkcija. Obstaja množica različnih arhitektur \cite{ConvNet}\cite{LSTM}\cite{resNet}, ki so polne po Turingu, če omogočajo rekurzijo \cite{DLbook}. V zadnjih letih se je globoko učenje izkazalo na široki paleti problemov, kot so: prepoznava slik \cite{fasterRCNN}, sledenje \cite{trackNet}, generiranje besedil, govora in slik \cite{genText}, obravnavanje naravnega jezika \cite{NLP}, itd.
 
 Globoko učenje temelji na multilinearnih transformacijah, ki se dajo zlahka paralelizirati (prva od Backusovih skrbi), kar s pridom izkoriščamo za implementacije na GPU \cite{TensorGPU}. Multilinearne transformacije lahko opišemo s tenzorsko algebro. To sicer omogoča algebraične manipulacije, a potrebni formalizem še ne obstaja v polni obliki \cite{whyDL}.
 
@@ -686,7 +683,7 @@ Globoko učenje temelji na multilinearnih transformacijah, ki se dajo zlahka par
 Globoko učenje je izrazljivo s tenzorsko algebro, a sklepanje o implementiranih modelih še vedno poteka v (matematičnem) jeziku, ki je ločen od implementacijskega jezika. Pravzaprav odsotnost formalizma sega tako daleč, da dandanes še ni natančne definicije globokega učenja.
 Leon Buttou, spoštovan strokovnjak s področja globokega učenja, je v korespondenci z avtorjem dejal:
 
-\begin{chapquote}{\small{dr. Leon Buttou, \textit{V korespondenci z avtorjem}}}
+\begin{chapquote}{\small{dr. Leon Buttou, \textit{v korespondenci z avtorjem}}}
 ``\dots There is no proper definition of what deep learning even is at this stage. Your [avtorjeva] theory of Operational Calculus on Programming Spaces \cite{opCalProg} could offer a first such definition through the formalism you [avtor] propose.''
 \end{chapquote}
 
@@ -694,7 +691,7 @@ Snovanje tega manjkajočega formalizma je predmet našega dela. Konstruirali bom
 
 \section{Tenzorska algebra}\label{sec:tenAlg}
 
-Tenzorska algebra vektorskega prostora $V$, ki jo označimo s $T(V)$, je algebra tenzorjev na $V$, pri kateri je bilinearna preslikava tenzorski produkt. Je prosta algebra (ang. free algebra) na $V$, in hkrati najsplošnejša algebra, ki vsebuje $V$, v smislu korespondence z univerzalno lastnostjo \cite{tenCalc1}.
+Tenzorska algebra vektorskega prostora $V$, ki jo označimo s $T(V)$, je algebra tenzorjev na $V$, pri kateri je bilinearna preslikava tenzorski produkt. Je prosta algebra (ang. free algebra) na $V$ in hkrati najsplošnejša algebra, ki vsebuje $V$, v smislu korespondence z univerzalno lastnostjo \cite{tenCalc1}.
 Tenzorska algebra je pomembna, saj porodi mnoge algebre, kot kvocientne algebre $T(V)$, kar bomo s pridom izkoristili.
 
 \subsection{Univerzalna lastnost}
@@ -713,17 +710,17 @@ kjer je $i$ kanonična vključitev $V$ v $T(V)$. Definiramo lahko tenzorsko alge
 
 \subsection{Kvocienti}
 
-Zaradi splošnosti tenzorske algebre, je mnoge druge algebre mogoče konstruirati tako, da pričnemo s tenzorsko algebro, v katero vpeljemo določene relacije nad generatorji, tj. konstruiramo določene kvocientne algebre $T(V)$. Primer tega je simetrična algebra, ki jo bomo uporabili tudi v tem delu.
+Zaradi splošnosti tenzorske algebre je mnoge druge algebre mogoče konstruirati tako, da pričnemo s tenzorsko algebro, v katero vpeljemo določene relacije nad generatorji, tj. konstruiramo določene kvocientne algebre $T(V)$. Primer tega je simetrična algebra, ki jo bomo uporabili tudi v tem delu.
 
 \section{Avtomatsko odvajanje}\label{sec:avtOdv}
 
-Avtomatsko odvajanje je množica tehnik za izračun odvodov funkcij, ki so implementirane kot računalniški programi. Izkorišča dejstvo, da vsak program, ne glede na svojo kompleksnost sestoji iz izvršitev osnovnih operacij in funkcij. Tehnike omogočajo učinkovite izračune odvodov, v $\mathcal{O}(1)$-krat daljšem času \cite{AdSurvey}.
+Avtomatsko odvajanje je množica tehnik za izračun odvodov funkcij, ki so implementirane kot računalniški programi. Izkorišča dejstvo, da vsak program, ne glede na svojo kompleksnost, sestoji iz izvedbe osnovnih operacij in funkcij. Tehnike omogočajo učinkovite izračune odvodov, v $\mathcal{O}(1)$-krat daljšem času \cite{AdSurvey}.
 
 \subsection{Vnaprejšnji in vzvratni način avtomatskega odvajanja}
 
-Temelj avtomatskega odvajanja je dekompozicija diferencialov s pomočjo verižnega pravila. Navadno sta predstavljena dva načina avtomatskega odvajanja. \emph{Vnaprejšnji način} \cite{PcAD} in \emph{vzvratni način} \cite{ReverseAD} avtomatskega odvajanja. Vnaprejšnji način določa obiskovanje verižnega pravila od navznoter proti navzven, medtem ko vzvratni način določa obisk od navzven proti navznoter.
+Temelj avtomatskega odvajanja je dekompozicija diferencialov s pomočjo verižnega pravila. Navadno sta predstavljena dva načina avtomatskega odvajanja. \emph{Vnaprejšnji način} \cite{PcAD} in \emph{vzvratni način} \cite{ReverseAD} avtomatskega odvajanja: vnaprejšnji način določa obiskovanje verižnega pravila od navznoter proti navzven, medtem ko vzvratni način določa obisk od navzven proti navznoter.
 
-V splošnem sta obe obliki specifična primera uporabe operatorja kompozicije programov, ki ga izpeljemo v tem delu (glej razdelek \ref{sec:OpKompo}) in s tem avtomatsko odvajanje dvignemo iz učinkovitega načina izračuna odvodov, v algebraično orodje.
+V splošnem sta obe obliki specifična primera uporabe operatorja kompozicije programov, ki ga izpeljemo v tem delu (glej razdelek \ref{sec:OpKompo}) in s tem avtomatsko odvajanje dvignemo iz učinkovitega načina izračuna odvodov v algebraično orodje.
 
 \chapter{Programski prostori} \label{ch:programskiProstori}
 
@@ -738,14 +735,14 @@ P:\VV\to\VV.
 Par $(\VV,\F)$, kjer sta
 \begin{itemize}
 \item
-$\VV$ končno-dimenzionalen vektorski prostor nad obsegom $K$,
+$\VV$ končno-dimenzionalni vektorski prostor nad obsegom $K$,
 \item
 $\F<\VV^\VV$ podprostor prostora $\VV^\VV$ vseh preslikav $\VV\to\VV$,
 \end{itemize}
 imenujemo \emph{Evklidski stroj} (z akcijami iz $\F$ nad $\VV$).
 \end{definicija}
 
-Na prvi pogled se Evklidski stroj zdi kot opis funkcijskega programiranja, s kompozicijami podedovanimi od $\F$. Vtis, da je Evklidski stroj videti kot model funkcijskega programiranja, je pravilen, saj želimo, da bi Evklidski stroj odražal in zajemal prednosti funkcijskega programiranja. Vendar bomo v naslednjem poglavju $\F$ dodatno omejili s pogojem, da so njeni elementi odvedljivi.
+Na prvi pogled se Evklidski stroj zdi kot opis funkcijskega programiranja s kompozicijami, podedovanimi od $\F$. Vtis, da je Evklidski stroj videti kot model funkcijskega programiranja, je pravilen, saj želimo, da bi Evklidski stroj odražal in zajemal prednosti funkcijskega programiranja. Vendar bomo v naslednjem poglavju $\F$ dodatno omejili s pogojem, da so njeni elementi odvedljivi.
 
 \section{Odvedljive preslikave in programi}
 
@@ -797,13 +794,13 @@ Naj bo  $\e_1,\ldots,\e_n$ baza prostora $U$ in $x_1,\ldots, x_m$ baza prostora 
 
 \section{Odvedljivi programi}
 
-Želimo si, da bi tudi odvode programov v Evklidskem stroju lahko predstavili kot programe v istem Evklidskem stroju. S tem namenom bomo definirali tri podprostore v pomnilniškem prostoru $\VV$, ki bodo opisovali kako različni deli pomnilniškega prostora vplivajo na končni rezultat programa.
+Želimo si, da bi tudi odvode programov v Evklidskem stroju lahko predstavili kot programe v istem Evklidskem stroju. S tem namenom bomo definirali tri podprostore v pomnilniškem prostoru $\VV$, ki bodo opisovali, kako različni deli pomnilniškega prostora vplivajo na končni rezultat programa.
 
 Označimo z $\e_1,\ldots, \e_n$ standardno bazo pomnilniškega prostora $\VV$ in z $x_1,\ldots x_n$ dualno bazo $\VV^*$. Funkcije $x_i$ so koordinatne funkcije na $\VV$ in ustrezajo posamičnim lokacijam (spremenljivkam) v pomnilniku programa.
 \begin{definicija}
 Za vsak program $P$ programskega prostora $\F<\VV^\VV$ definiramo
 \emph{vhodni prostor} $I_P<\VV$ (prostor parametrov) in
-\emph{zunanji prostor} $O_P<\VV$,
+\emph{zunanji prostor} $O_P<\VV$
 kot minimalna podprostora, ki ju napenja standardna baza, na tak način, da je preslikava  $P_e$, definirana s komutativnim diagramom
 \begin{equation} 
     \label{eq:induced_map}
@@ -819,11 +816,11 @@ neodvisna od izbire elementa $\vec{f}\in F_P=(I_P+O_P)^\perp$.
 Prostor $F_P=(I_P+O_P)^\perp$ poimenujemo \emph{prost prostor} programa $P$.
 \end{definicija}
 
-Spremenljivke $x_i$, ki ustrezajo standardni bazi vektorjev in napenjajo parametre, izhode in prost prostor, so imenovane \emph{vhodne spremenljivke}, \emph{izhodne spremenljivke} in \emph{proste spremenljivke}. \emph{Proste spremenljivke} so tiste, ki jih akcija programa ne naslovi in nimajo vpliva na končen rezultat. Izhod programa je odvisen zgolj od vrednosti vhodnih spremenljivk in sestoji iz spremenljivk katerih vrednosti so bile spremenjene med izvajanjem programa. Vhodne in izhodne spremenljivke imajo lahko neprazen presek.
+Spremenljivke $x_i$, ki ustrezajo standardni bazi vektorjev in napenjajo parametre, izhode ter prost prostor, so imenovane \emph{vhodne spremenljivke}, \emph{izhodne spremenljivke} in \emph{proste spremenljivke}. \emph{Proste spremenljivke} so tiste, ki jih akcija programa ne naslovi in nimajo vpliva na končni rezultat. Izhod programa je odvisen zgolj od vrednosti vhodnih spremenljivk in sestoji iz spremenljivk, katerih vrednosti so bile spremenjene med izvajanjem programa. Vhodne in izhodne spremenljivke imajo lahko neprazen presek.
 
-Preslikava $P_e$ \eqref{eq:induced_map} imenujemo \emph{akcijska preslikava programa} $P$ in opisuje dejansko akcijo programa $P$ nad svojim pomnilniškim prostorom $\VV$, pri čemer $P_e$ ignorira prost prostor programa.
+Preslikavo $P_e$ \eqref{eq:induced_map} imenujemo \emph{akcijska preslikava programa} $P$ in opisuje dejansko akcijo programa $P$ nad svojim pomnilniškim prostorom $\VV$, pri čemer $P_e$ ignorira prost prostor programa.
 
-Ko govorimo o odvedljivosti programov nas bo predvsem zanimal odvod akcijske preslikave.
+Ko govorimo o odvedljivosti programov, nas bo predvsem zanimal odvod akcijske preslikave.
 \begin{definicija}[Avtomatsko odvedljivi programi]\label{def:autDef}
 Program $P_\VV\to\VV$ je \emph{avtomatsko odvedljiv}, če obstaja vložitev prostora $O_P\otimes I_P^*$ v prost prostor $F_P$ in tak program $(1+\D )P:\VV\to \VV\oplus(\VV\otimes\VV^*)$, da je njegova akcijska preslikava
 \begin{equation}
@@ -837,7 +834,7 @@ Program $P:\VV\to\VV$ je \emph{avtomatsko odvedljiv do reda} $k$, če obstaja ta
   \end{equation}
 \end{definicija}
 
-Če je program $P:\VV\to\VV$ avtomatsko odvedljiv, potem je tudi odvedljiv kot preslikava $\VV\to\VV$. Toda samo odvod akcijske preslikave programa $P$ lahko implementiramo kot program, saj je v praksi pomnilniški prostor omejen na $\VV$, da pa lahko odvajamo program do reda $k$, moramo izračunati in shraniti vse odvode reda $k$ in manj.
+Če je program $P:\VV\to\VV$ avtomatsko odvedljiv, potem je tudi odvedljiv kot preslikava $\VV\to\VV$. Toda samo odvod akcijske preslikave programa $P$ lahko implementiramo kot program, saj je v praksi pomnilniški prostor omejen na $\VV$, da pa lahko odvajamo program do reda $k$, moramo izračunati in shraniti vse odvode reda $k$ ter manj.
 
 \chapter{Odvedljivi programski prostori} \label{ch:OdvProgPros}
 
@@ -889,7 +886,7 @@ Za jasnost izražanja definiramo sledeče funkcijske prostore:
  	\F_n=\{f:\VV\to \VV\otimes T_n(\VV^*)\}
  \end{equation}
 Te prostore lahko gledamo kot podprostore $\F_\infty=\{f:\VV\to \VV\otimes
-T(\VV^*)\}$, saj je $\VV$ naravno vložen v $\VV\otimes T(\VV^*)$. Fréchetov odvod definira operator na prostoru gladkih preslikav $\F_\infty$. Slika katerekoli preslikave $P:\VV\to\VV$ operatorja $\D$ je njen prvi odvod, višji odvodi pa so kar potence operatorja $\D$ aplicirane na $P$. Tako je $\D^k$ preslikava med funkcijskimi prostori \eqref{eq:F_n},
+T(\VV^*)\}$, saj je $\VV$ naravno vložen v $\VV\otimes T(\VV^*)$. Fréchetov odvod definira operator na prostoru gladkih preslikav $\F_\infty$. Slika katerekoli preslikave $P:\VV\to\VV$ operatorja $\D$ je njen prvi odvod, višji odvodi pa so kar potence operatorja $\D$, aplicirane na $P$. Tako je $\D^k$ preslikava med funkcijskimi prostori \eqref{eq:F_n},
 \begin{equation}\label{eq:toFn+k}
  \D^k:\F^n\to\F^{n+k}.
  \end{equation}
@@ -898,7 +895,7 @@ T(\VV^*)\}$, saj je $\VV$ naravno vložen v $\VV\otimes T(\VV^*)$. Fréchetov od
 \begin{equation}\label{eq:P}
  	\D\dP_0\subset\dP_0\otimes T(\VV^*).
 \end{equation}
-Prostor $\dP_n<\F_n$, ki ga napenja $\{\D^k\dP_0;\quad 0\le k\le n\}$ nad $K$, imenujemo \emph{odvedljiv programski prostor reda} $n$. Ko so vsi elementi $\dP_0$ analitični, $\dP_0$ imenujemo \emph{analitičen programski prostor}. 
+Prostor $\dP_n<\F_n$, ki ga napenja $\{\D^k\dP_0;\quad 0\le k\le n\}$ nad $K$, imenujemo \emph{odvedljiv programski prostor reda} $n$. Ko so vsi elementi $\dP_0$ analitični, $\dP_0$ imenujemo \emph{analitični programski prostor}. 
 \end{definicija}
 Definicijo odvedljivih programskih prostorov višjega reda upravičimo z naslednjim izrekom.
 
@@ -911,7 +908,7 @@ za vsak $k\in\mathbb{N}$.
 \end{izrek}
 \begin{dokaz}
 Z indukcijo na redu $k$. Za $k=1$ izrek drži po definiciji. Predpostavimo $\forall_{P\in\dP_0}$,
-  $\D^n\dP_0\subset\dP_0\otimes T(\VV^*)$. Z $P_{\alpha,k}^i$ označimo komponento $k$-tega odvoda, kjer multi-indeks $\alpha$ označuje komponento $T(\VV^*)$ in indeks $i$ komponento $\VV$.
+  $\D^n\dP_0\subset\dP_0\otimes T(\VV^*)$. S $P_{\alpha,k}^i$ označimo komponento $k$-tega odvoda, kjer multi-indeks $\alpha$ označuje komponento $T(\VV^*)$ in indeks $i$ komponento $\VV$.
 	\begin{equation}\label{eq:inductionStep}
 \D^{n+1}P_{\alpha,k}^i=\D(\D^n P^i_\alpha)_k\land(\D^n P^i_\alpha)\in\dP_0\implies \D(\D^n P^i_\alpha)_k\in \dP_0\otimes T(\VV^*)
 	\end{equation}
@@ -951,13 +948,13 @@ Par $(\VV, \dP_0)$ je \emph{navidezni tenzorski stroj}, če je
     \end{itemize}
 \end{definicija}
 
-\noindent Ko komponiramo kontrakcije \eqref{eq:Contraction} pomnilnika z aktivacijskimi funkcijami $\phi\in\dP$ opazimo, da so tenzorske mreže \cite{opCalProg}
+\noindent Ko komponiramo kontrakcije \eqref{eq:Contraction} pomnilnika z aktivacijskimi funkcijami $\phi\in\dP$, opazimo, da so tenzorske mreže \cite{opCalProg}
 \begin{equation} \label{eq:tenWord}
 \NN(v)=\phi_k\circ W_k\circ\cdots\circ\phi_0\circ W_0(v),
 \end{equation}
 osnovni programi navideznih tenzorskih strojev (standardne nevronske mreže pridobimo s pogojem $\forall_i(W_i\in\VV_1)$). Formulacijo \eqref{eq:tenWord} lahko posplošimo na konvolucijske modele, vendar tega v tem delu ne bomo razložili.
 \begin{opomba}[TensorFlow]
-Knjižnice kot je TensorFlow \cite{TF} lahko razumemo kot implementacije navideznih tenzorskih strojev, ki vsebujejo določene podmnožice odvedljivih programskih prostorov $\dP_1<\dP_0\otimes T(\VV^*)$.
+Knjižnice kot je TensorFlow \cite{TF}, lahko razumemo kot implementacije navideznih tenzorskih strojev, ki vsebujejo določene podmnožice odvedljivih programskih prostorov $\dP_1<\dP_0\otimes T(\VV^*)$.
 \end{opomba}
 
 \section{Implementacija}\label{sec:implementacija}
@@ -966,7 +963,7 @@ Odprtokodna implementacija razširitve pomnilniškega prostora $\VV$ na navidezn
 \begin{equation}
 \sum\limits_{i=0}^n\D^i\CC<\dP_n:\VV\to\VV\otimes T(\VV^*)
 \end{equation}
-je na razpolago na avtorjevi GitHub strani \cite{dC++}. Implementacijo spremljata članek \cite{dC++Paper}, kjer smo ubesedili proces implementacije teorije tega dela, in učno besedilo uporabe knjižnice \cite{dC++Man}.
+je na razpolago na avtorjevi strani \cite{dC++}. Implementacijo spremljata članek \cite{dC++Paper}, kjer smo ubesedili proces implementacije teorije tega dela, in učno besedilo uporabe knjižnice \cite{dC++Man}.
 
 
 \chapter{Operatorski račun nad programskimi prostori}\label{ch:opRac}
@@ -1007,7 +1004,7 @@ Preslikave $\VV\otimes T(\VV^*)\to\VV\otimes T(\VV^*)$ lahko konstruiramo s tenz
 ki se linearno razširi na celoten prostor $\VV\otimes\T(\VV^*)$.
 \end{definicija}
 \begin{izrek}[Algebra programov]\label{izr:alg}
- Za vsako bilinearno preslikavo $\cdot :\VV\times \VV\to \VV$ je neskončnokrat odvedljiv programski prostor $\dP_\infty$ funkcijska algebra, s produktom definiranim v \eqref{eq:algebra_product}.
+ Za vsako bilinearno preslikavo $\cdot :\VV\times \VV\to \VV$ je neskončnokrat odvedljiv programski prostor $\dP_\infty$ funkcijska algebra s produktom definiranim v \eqref{eq:algebra_product}.
 \end{izrek}
 
 \section{Razvoj v tenzorsko vrsto}\label{sec:vrsta}
@@ -1030,15 +1027,15 @@ Torej je operator $e^{h\D}$ preslikava med funkcijskimi prostori \eqref{eq:F_n}
  \end{equation*}
 Hkrati pa definira preslikavo
   \begin{equation}\label{eq:specProg}
-  	e^{h\D}:\dP\times \VV\to \VV\otimes \T(\VV^*),
+  	e^{h\D}:\dP\times \VV\to \VV\otimes \T(\VV^*)
   \end{equation}
-tako, da vzame sliko preslikave $\ed(P)$ v določeni točki $\x\in\VV$. Z uporabo \eqref{eq:specProg} lahko konstruiramo preslikavo iz prostora programov v prostor polinomov. Poudarjamo, da je prostor polinomov $\VV\to K$ izomorfen simetrični algebri $S(\VV)$, ki pa je kvocient tenzorske algebre $T(\VV^*)$. Vsakemu elementu v $\VV\otimes T(\VV^*)$ lahko priredimo pripadajoč element iz $\VV\otimes S(\VV^*)$, in sicer polinomsko preslikavo $\VV\to\VV$. Zatorej, podobno kot pri \eqref{eq:P_algebra}, obravnavamo dopolnitev simetrične algebre $S(\VV^*)$, kot formalne potenčne vrste $\Ss(\VV^ *)$, ki so izomorfne kvocientu algebre tenzorskih vrst $\T(\VV^ *)$. To pa nas privede do
+tako, da vzame sliko preslikave $\ed(P)$ v določeni točki $\x\in\VV$. Z uporabo \eqref{eq:specProg} lahko konstruiramo preslikavo iz prostora programov v prostor polinomov. Poudarjamo, da je prostor polinomov $\VV\to K$ izomorfen simetrični algebri $S(\VV)$, ki pa je kvocient tenzorske algebre $T(\VV^*)$. Vsakemu elementu v $\VV\otimes T(\VV^*)$ lahko priredimo pripadajoč element iz $\VV\otimes S(\VV^*)$, in sicer polinomsko preslikavo $\VV\to\VV$. Zatorej, podobno kot pri \eqref{eq:P_algebra}, obravnavamo dopolnitev simetrične algebre $S(\VV^*)$ kot formalne potenčne vrste $\Ss(\VV^ *)$, ki so izomorfne kvocientu algebre tenzorskih vrst $\T(\VV^ *)$. To nas privede do
 \begin{equation}\label{eq:pToPol}
  	e^{h\D}: \dP\times \VV\to \VV\otimes \Ss(\VV^*).
  \end{equation}
-Za vsak element $\vv_0\in\VV$, je izraz $\ed(\cdot,\vv_0)$ preslikava $\dP\to\VV\otimes\Ss(\VV^ *)$, ki preslika program v formalno potenčno vrsto.
+Za vsak element $\vv_0\in\VV$ je izraz $\ed(\cdot,\vv_0)$ preslikava $\dP\to\VV\otimes\Ss(\VV^ *)$, ki preslika program v formalno potenčno vrsto.
 
-Korespondenco med multi-tenzorji v $\VV\otimes T(\VV^ *)$ in polinomskimi preslikavami $\VV\to\VV$ lahko izrazimo z večimi kontrakcijami po vseh indeksih. Za preproste tenzorje  $\uu\otimes
+Korespondenco med multi-tenzorji v $\VV\otimes T(\VV^ *)$ in polinomskimi preslikavami $\VV\to\VV$ lahko izrazimo z več kontrakcijami po vseh indeksih. Za preproste tenzorje  $\uu\otimes
  f_1\otimes\ldots\otimes f_n\in \VV\otimes(\VV^*)^{\otimes n}$ je kontrakcija z $\vv\in\VV$ dana z aplikacijo ko-vektorja $f_n$ na $\vv$,\footnote{Za tenzorje drugega reda $\VV\otimes\VV^*$ kontrakcija korespondira z množenjem vektorja z matriko.}
 \begin{equation}
    \label{eq:contraction}
@@ -1049,7 +1046,7 @@ Z večkratno uporabo kontrakcije preprostemu tenzorju pripišemo monomsko presli
    \label{eq:monomial}
  \uu\otimes f_1\otimes\ldots\otimes f_n\cdot (\vv)^{\otimes n} = f_n(\vv)f_{n-1}(\vv)\cdots f_1(\vv) \uu.
 \end{equation}
-Obe kontrakciji \eqref{eq:contraction} in \eqref{eq:monomial} sta preko linearnosti razširljivi na prostore $\VV\otimes(\VV)^{\otimes n}$ in dalje na $\VV\otimes T(\VV^ *)$ .\footnote{Opazimo, da na preprostem tenzorju ranga ena
+Obe kontrakciji, \eqref{eq:contraction} in \eqref{eq:monomial}, sta preko linearnosti razširljivi na prostore $\VV\otimes(\VV)^{\otimes n}$ in dalje na $\VV\otimes T(\VV^ *)$ .\footnote{Opazimo, da na preprostem tenzorju ranga ena
   $\uu\in\VV$ ne moremo uporabiti kontrakcije z $\vv$. Za konsistentnost definiramo $\uu\cdot \vv = \uu$ in k tenzorju reda nič, $\uu$, pripišemo konstantno preslikavo
   $\vv\mapsto \uu$. Razširitev
   \eqref{eq:monomial}
@@ -1059,12 +1056,12 @@ Obe kontrakciji \eqref{eq:contraction} in \eqref{eq:monomial} sta preko linearno
   \noindent Za multi-tenzor $\bfW=\bfw_0+\bfw_1+\cdots+\bfw_n\in\VV\otimes T_n(\VV^*)$, kjer je $\bfw_k\in\VV\otimes(\VV^*)^{\otimes n}$, se večkratna kontrakcija z vektorjem $\vv\in\VV$ izraža kot polinomska preslikava
   \begin{equation}
   \label{eq:polynomial_tensor}
-  \bfW(\vv)=\bfw_0+\bfw_1\cdot\vv+\cdots+\bfw_n\cdot(\vv)^{\otimes n}
+  \bfW(\vv)=\bfw_0+\bfw_1\cdot\vv+\cdots+\bfw_n\cdot(\vv)^{\otimes n}.
   \end{equation}
 
 \begin{izrek}[Razvoj v tenzorsko vrsto]\label{izr:e^d}
 	Za program $P\in\dP$  se razvoj v neskončno tenzorsko vrsto
-  v točki $\vv_0\in \VV$ izraža z večimi kontrakcijami 
+  v točki $\vv_0\in \VV$ izraža z več kontrakcijami 
 	\begin{multline}\label{eq:tenzorVrsta}
 	P(\vv_0+h\vv) = \Big((e^{h\D}P)(\vv_0)\Big)(\vv)
   = \sum_{n=0}^\infty\frac{h^n}{n!}\D^nP(\vv_0)\cdot (\vv^{\otimes n})\\
@@ -1075,7 +1072,7 @@ Obe kontrakciji \eqref{eq:contraction} in \eqref{eq:monomial} sta preko linearno
 \end{izrek}
  
  \begin{dokaz}
-Pokazali bomo da $\frac{d^n}{dh^n}\text{(LHS)}|_{h=0}=\frac{d^n}{dh^n}\text{(RHS)}|_{h=0}$. Potem imata $\text{LHS}$ in $\text{RHS}$ kot funkciji $h$ enaki Taylorjevi vrsti in sta posledično enaki.\\
+Pokazali bomo, da $\frac{d^n}{dh^n}\text{(LHS)}|_{h=0}=\frac{d^n}{dh^n}\text{(RHS)}|_{h=0}$. Potem imata $\text{LHS}$ in $\text{RHS}$ kot funkciji $h$ enaki Taylorjevi vrsti in sta posledično enaki.\\
  $\implies$
  
  $$\left. \frac{d^n}{dh^n}P(\vv_0+h\vv)\right|_{h=0}=\D^n P(\vv_0)(\vv)$$
@@ -1092,7 +1089,7 @@ Pokazali bomo da $\frac{d^n}{dh^n}\text{(LHS)}|_{h=0}=\frac{d^n}{dh^n}\text{(RHS
  Izrek \ref{izr:e^d} je mogoče posplošiti na konvolucije z uporabo Volterrovih vrst. S tem model vključuje tudi konvolucijske nevronske arhitekture.
  \end{opomba}
  
- \noindent Iz zgornjega teorema trivialno sledi,da je operator $\ed$ avtomorfizem algebre programov $\dP_\infty$,
+ \noindent Iz zgornjega teorema trivialno sledi, da je operator $\ed$ avtomorfizem algebre programov $\dP_\infty$,
  \begin{equation}\label{eq:prod}
   	e^{h\D}(p_1\cdot p_2)=e^{h\D}(p_1)\cdot e^{h\D}(p_2)
   \end{equation}
@@ -1110,13 +1107,13 @@ Ko je izbira $\vv_0\in\VV$ arbitrarna, ga v zapisu izpuščamo.
 S tem smo razvili operator premika, s katerim zadostimo potrebi, ki smo jo izrazili na začetku razdelka. Zdaj pa se obračamo k drugim zmožnostim, ki nam jih ta operator ponuja, in sicer zmožnostim algebraičnega sklepanja o analitičnih lastnostih programov.
  \begin{opomba}
  Posledica $\ref{tenProdEmb}$ skozi \eqref{eq:P_algebra} implicira
-      	$e^{h\D}(\dP_0)\subset\dP_0\otimes \T(\VV^*)$      
+      	$e^{h\D}(\dP_0)\subset\dP_0\otimes \T(\VV^*)$,     
  kar omogoča učinkovito implementacijo v navideznem tenzorskem stroju s pomočjo operatorja $\sumd$. 
 \end{opomba}
 
 \section{Operator kompozicije programov}\label{sec:OpKompo}
 
-V tem razdelku posplošimo tako \emph{vnaprejšnji način} \cite{PcAD} kot tudi \emph{vzvratni način} \cite{ReverseAD} avtomatskega odvajanja na poljuben red z enim samim operatorjem. Nato pa bomo demonstrirali, da naša teorija omogoča izračune na samih operatorjih, preden operator apliciramo na konkreten program, kar nadomesti kompleksne pojme s preprostimi izrazi.
+V tem razdelku posplošimo tako \emph{vnaprejšnji način} \cite{PcAD} kot tudi \emph{vzvratni način} \cite{ReverseAD} avtomatskega odvajanja na poljubni red z enim samim operatorjem. Nato pa bomo demonstrirali, da naša teorija omogoča izračune na samih operatorjih, preden operator apliciramo na konkretni program, kar nadomesti kompleksne pojme s preprostimi izrazi.
 
  \begin{izrek}[Operator kompozicije programov]\label{izr:kompo}
  Kompozicijo dveh programov $f\circ g\in\dP$ lahko izrazimo kot
@@ -1157,7 +1154,7 @@ V tem razdelku posplošimo tako \emph{vnaprejšnji način} \cite{PcAD} kot tudi 
    \begin{equation}
     \exp(\D_fe^{h\D_g})(\cdot,g)=g^*\left( e^{h\D} \right)\label{eq:opKompo}
   \end{equation}
-  povlek posplošenega operatorja premika $\ed$ skozi $g$. S fiksacijo druge preslikave $f$ v \eqref{eq:opGenKompo}, pa je operator
+  povlek posplošenega operatorja premika $\ed$ skozi $g$. S fiksacijo druge preslikave $f$ v \eqref{eq:opGenKompo} pa je operator
     \begin{equation}
    \exp(\D_fe^{h\D_g})(f,\cdot)=f_*\left( e^{h\D} \right)\label{eq:opKompoForward}
    \end{equation}
@@ -1168,7 +1165,7 @@ potisk posplošenega operatorja premika $\ed$ skozi $f$.
 Če je program izrazljiv kot $P=P_n\circ\ldots P_1$, je uporaba operatorjev
   $\exp(\D_fe^{h\D_g})(\cdot,P_i)$ od $i=1$ do $i=n$ ekvivalentno \emph{vnaprejšnjemu načinu avtomatskega odvajanja}.
   Uporaba operatorjev $\exp(\D_fe^{h\D_g})(P_{n-i+1},\cdot)$ v vzvratnem vrstnem redu pa je ekvivalentna \emph{vzvratnem načinu  avtomatskega odvajanja}.
-  S tem oba načina posplošimo na poljuben red z enim samim operatorjem \eqref{eq:opGenKompo}, tako da fiksiramo primerno od obeh preslikav, ali $f$ ali $g$.
+  S tem oba načina posplošimo na poljubni red z enim samim operatorjem \eqref{eq:opGenKompo}, tako da fiksiramo primerno od obeh preslikav, ali $f$ ali $g$.
 \end{opomba}
 
 Torej operator $(\ref{eq:opKompo})$ skozi \eqref{eq:kompo} omogoča invariantnost od točke stopnje izvajanja programa, kar je pomembno pri dokazovanju pravilnosti programov. To je analogno principu splošne kovariance \cite{GeneralCovariance} v teoriji relativnosti, ki je invarianca oblike fizikalnih zakonov pod arbitrarnimi odvedljivimi transformacijami.
@@ -1184,7 +1181,7 @@ Torej operator $(\ref{eq:opKompo})$ skozi \eqref{eq:kompo} omogoča invariantnos
    Sledi iz $\eqref{eq:pToPol}$ in Izreka $\ref{izr:kompo}$.
    \end{dokaz}
 
-\noindent Takšne izračune pa lahko olajšamo tako da jih izvedemo na samih operatorjih, in se s tem izognemo manipulacijam tenzorskih vrst. Tako operatorji postanejo oblika abstrakcije. 
+\noindent Takšne izračune pa lahko olajšamo tako, da jih izvedemo na samih operatorjih in se s tem izognemo manipulacijam tenzorskih vrst. Tako operatorji postanejo oblika abstrakcije. 
 
 \noindent Odvod $\frac{d}{dh}$ operatorja $\eqref{eq:opKompo}$ je
 \begin{equation}\label{eq:dexp}
@@ -1200,26 +1197,26 @@ Opozarjamo pa na pomembno razliko z operatorjem $e^{h\D_g}$, katerega odvod je
 
 V primer pouka vzemimo izračun drugega odvoda operatorja \eqref{eq:kompo}
 $$\left(\frac{d}{dh}\right)^2\exp\left(\D_fe^{h\D_g}\right)(g)=\frac{d}{dh}\left(\D_f(\D_gg)e^{h\D_g}\exp\left(\D_fe^{h\D_g}\right)(g)\right),$$
-ki je po enačbah $\eqref{eq:dexp}$ in $\eqref{eq:de}$ z uporabo algebre in ustreznih aplikacij enak
+ki je po enačbah $\eqref{eq:dexp}$ in $\eqref{eq:de}$ z uporabo algebre ter ustreznih aplikacij enak
 \begin{equation}\label{eq:d^2comp}
  \left(\D_f(\D^2_gg)\right)e^{h\D_g}\exp(\D_fe^{h\D_g})(g)+(\D^2_f(\D_gg)^2)e^{2h\D_g}\exp(\D_fe^{h\D_g})(g).
  \end{equation}
-Operator je venomer prestavljen v točko ocenitve $\eqref{eq:specProg}$ $\vv\in\VV$, zatorej nas zanima le obnašanje v limiti $h\to 0$. Ko v izrazu \eqref{eq:d^2comp} vzamemo limito se dokopljemo do operatorja
+Operator je venomer prestavljen v točko ocenitve $\eqref{eq:specProg}$ $\vv\in\VV$, zatorej nas zanima le obnašanje v limiti $h\to 0$. Ko v izrazu \eqref{eq:d^2comp} vzamemo limito, pridemo do operatorja
  \begin{equation}\label{eq:secDer}
 	\left(\D_f(\D^2_gg)+\D^2_f(\D_gg)^2\right)\exp(\D_f):\dP\to\D^2\dP(g)
  \end{equation}
 Tako smo brez vsiljevanja dodatnih pravil izračunali operator drugega odvoda kompozicije z $g$, direktno na operatorju samem. Ta operator \eqref{eq:secDer} pa je sedaj pripravljen za uporabo na konkretnem programu.
 
-Kot je razvidno iz primera, je računanje z operatorji precej enostavnejše od direktne manipulacije tenzorskih vrst. To nam omogoča enostavno implementacijo nad poljubnimi programskimi prostori. Odvod kompozicije programov lahko izrazimo zgolj z uporabo operatorjev, pravila produkta \eqref{eq:prod} in odvodom operatorja premika \eqref{eq:de}. Torej eksplicitno poznavanje pravil za odvajanje kompozicij ni potrebno, saj so zakodirana kar v strukturi operatorja kompozicij $exp(\D_fe^{h\D_g})$, ki pa ga odvajamo po standardnih pravilih.
+Kot je razvidno iz primera, je računanje z operatorji precej enostavnejše od direktne manipulacije tenzorskih vrst. To nam omogoča enostavno implementacijo nad poljubnimi programskimi prostori. Odvod kompozicije programov lahko izrazimo zgolj z uporabo operatorjev, pravila produkta \eqref{eq:prod} in z odvodom operatorja premika \eqref{eq:de}. Torej eksplicitno poznavanje pravil za odvajanje kompozicij ni potrebno, saj so zakodirana kar v strukturi operatorja kompozicij $exp(\D_fe^{h\D_g})$, ki pa ga odvajamo po standardnih pravilih.
 
-Podobno lahko poračunamo tudi višje odvode kompozicij, kar na operatorju samem
+Podobno lahko poračunamo tudi višje odvode kompozicij kar na operatorju samem
  \begin{equation}\label{eq:dkompo}
  \D^n(f\circ g)=\left.\left(\frac{d}{dh}\right)^n\exp\left(\D_fe^{h\D_g}\right)(g,f)\right|_{h=0}.
  \end{equation}
 
-\section{Redovna redukcija za gnezdene aplikacije}\label{sec:orderReduction}
+\section{Avtomatsko odvedljivi odvodi}\label{sec:orderReduction}
 
-Zmožnost uporabe $k$-tega odvoda programa $P_1\in\dP$, kot del odvedljivega programa $P_2\in\dP$ se kaže kot uporabna v večih znanostih \cite{StatMC}. A zato bi morali biti sposobni obravnavat sam ($k$-ti) odvod programa $P\in\dP$ kot odvedljiv progam $P^{\prime k}\in\dP$. Prav to pa motivira sledeč izrek.
+Zmožnost uporabe $k$-tega odvoda programa $P_1\in\dP$, kot del odvedljivega programa $P_2\in\dP$, se kaže kot uporabna v več znanostih \cite{StatMC}. A zato bi morali biti sposobni obravnavati sam ($k$-ti) odvod programa $P\in\dP$ kot odvedljiv progam $P^{\prime k}\in\dP$. Prav to pa motivira sledeč izrek.
 \begin{izrek}[Redovna redukcija]\label{izr:reductionMap}
 Obstaja takšna preslikava redukcije reda $\phi:\dP_n\to \dP_{n-1}$, da sledeč diagram komutira
 \begin{equation}\label{eq:reductionMap}
@@ -1237,29 +1234,29 @@ in zadošča enakosti
 za vsak $n\ge 1$, kjer je $e^\D_n$ projekcija operatorja $e^\D$ na nabor $\{\D^n\}$.
 \end{izrek}  
 \begin{posledica}[Odvedljiv odvod]\label{cor:extraxtDerivatives}
-Po izreku \ref{izr:reductionMap}, je $n$-krat odvedljiv $k$-ti odvod programa $P\in\dP_0$ moč izrazit kot
+Po izreku \ref{izr:reductionMap}, je $n$-krat odvedljivi $k$-ti odvod programa $P\in\dP_0$ moč izrazit kot
 \begin{equation*}
 ^{n}P^{k\prime}=\phi^k\circ e^\D_{n+k}(P)\in\dP_n
 \end{equation*}
 \end{posledica}   
 
-Torej smo pridobili sposobnost zapisovanja odvedljivih programov, ki operirajo na odvedljivih odvodih drugih programov. To je ključna sposobnost na pomembnost katere (in pomanjkanje v večini modelov) opozarjajo drugi avtorji \cite{AD1}\cite{AD2}. 
+Torej smo pridobili sposobnost zapisovanja odvedljivih programov, ki operirajo na odvedljivih odvodih drugih programov. To je ključna sposobnost, na pomembnost katere (in pomanjkanje v večini modelov) opozarjajo drugi avtorji \cite{AD1}\cite{AD2}. 
 
 \section{Funkcijske transformacije in interpreterji programov}\label{sec:FunTrans}
 
-V pričujočem razdelku bomo pokazali, kako lahko z izpeljano teorijo razvijemo nove pristope, v katerih nato težje izračune prepustimo učnim algoritmom in se tako dokopljemo do novih modelov globokega učenja. Idejo bomo predstavili na primeru izpeljave \emph{nevronskih programskih interpreterjev} \cite{progInterp}.
+V pričujočem razdelku bomo pokazali, kako lahko z izpeljano teorijo razvijemo nove pristope, v katerih nato težje izračune prepustimo učnim algoritmom in tako pridemo do novih modelov globokega učenja. Idejo bomo predstavili na primeru izpeljave \emph{nevronskih programskih interpreterjev} \cite{progInterp}.
 
 Predpostavimo strojno opremo $H$, ki je optimizirana za nabor funkcij
    $F=\{f_i:\VV\to \VV\}$. Nabor $F$ je specificiran s strani proizvajalca.  
    
-   S tehnološkimi napredki je menjava strojne opreme pogost pojav, ki lahko vodi v upad učinkovitosti. Zatorej bi želeli transformacijo programa $P\in\dP$ v bazi $F$. Pogosto (predvsem v strojnem in globokem učenju) se zadovoljimo s sub-optimalnim algoritmom, ki je učinkovit na strojni opremi $H$. Sub-optimalnost algoritma je odvisna od nabora $F$, od tega ali napenja $\dP$ ali ne. Klasičen primer transformacije baze je Fourierjeva transformacija.
+   S tehnološkimi napredki je menjava strojne opreme pogost pojav, ki lahko vodi v upad učinkovitosti. Zatorej bi želeli transformacijo programa $P\in\dP$ v bazi $F$. Pogosto (predvsem v strojnem in globokem učenju) se zadovoljimo s sub-optimalnim algoritmom, ki je učinkovit na strojni opremi $H$. Sub-optimalnost algoritma je odvisna od nabora $F$, od tega, ali napenja $\dP$ ali ne. Klasični primer transformacije baze je Fourierjeva transformacija.
 
 Z orodji, ki smo jih razvili v tem delu je problem rešljiv preko linearne algebre. Naj $e^\D_n$ označuje projekcijo operatorja $e^\D$ na prvih $n$ baznih vektorjih $\{\D^i\}$. Po Izreku \ref{izr:e^d} lahko konstruiramo preslikavo \eqref{eq:pToPol} iz prostora programov v prostor polinomov z neznankami v $\VV^k$. Naj $\X=\{p_i\}$ označuje bazo prostora polinomov $\VV\to \VV$.\footnote{Ena od izbir bi bila baza monomov,
 sestavljena iz elementov  $\e_i\otimes\prod\limits_{\alpha,\forall_j}
    x_{\alpha_j}$, kjer $\e_i$ napenjajo $\VV$, $x_i$ napenjajo $\VV^*$ in je $\alpha$
-   multi-indeks} Operator $e^\D_n(P\in\dP)$ lahko interpretiramo kot vektor linearnih kombinacij $\X$.
+   multi-indeks.} Operator $e^\D_n(P\in\dP)$ lahko interpretiramo kot vektor linearnih kombinacij $\X$.
    
-Definirajmo tenzor $T_{\X F}$ transformacije baze $F\to\X$ z
+Definirajmo tenzor $T_{\X F}$ transformacije baze $F\to\X$ s
   \begin{equation}\label{eq:matTransF}
   T_{\X F}=
   p_1\otimes e_n^\D(f_1)^* + p_2\otimes e_n^\D(f_2)^* + \cdots + p_n\otimes e_n^\D(f_n)^*.
@@ -1269,7 +1266,7 @@ Torej je tenzor transformacije baze $\X\to F$ njegov inverz
   T_{F\X}=T_{\X F}^{-1}.
   \end{equation}
   
-Za specifičen nabor $F$ moramo tenzor \eqref{eq:matTrans} poračunati le enkrat, in ga lahko potem uporabljamo za transformacije poljubnih programov. Koordinate programa $P\in\dP$ v bazi $F$ so
+Za specifični nabor $F$ moramo tenzor \eqref{eq:matTrans} poračunati le enkrat in ga lahko potem uporabljamo za transformacije poljubnih programov. Koordinate programa $P\in\dP$ v bazi $F$ so
 \begin{equation}\label{eq:P_F}
   	P_F=T_{F\X}\cdot e^\D(P).
   \end{equation}
@@ -1277,15 +1274,15 @@ Izraz $\eqref{eq:P_F}$ predstavlja koordinate programa $P$ v bazi $F$. Torej lah
   \begin{equation}\label{eq:app}
   P=\sum\limits_{i=0}^{n}{P_F}_if_i
   \end{equation}
-  V kolikor $F$ ne napenja $\dP$, ali pa smo uporabili projekcijo operatorja $e^\D_{n<N}$, je izraz \eqref{eq:app} kljub temu najboljši možen približek programa, na komponentah $\{\D^n\}$, v bazi $F$.
+  Če $F$ ne napenja $\dP$, ali pa smo uporabili projekcijo operatorja $e^\D_{n<N}$, je izraz \eqref{eq:app} kljub temu najboljši možni približek programa, na komponentah $\{\D^n\}$, v bazi $F$.
 
-Na izpeljan postopek lahko gledamo kot na prevajanje programov iz enega nabora funkcij na drugega. Izračun tenzorjev transformacije \eqref{eq:matTrans} baze pa lahko prepustimo učnim algoritmom, kot funkcijo vhoda programa. Tako se dokopljemo do različice \emph{nevronskih programskih interpreterjev} \cite{progInterp}, kot smo napovedali v začetku razdelka.
+Na izpeljani postopek lahko gledamo kot na prevajanje programov iz enega nabora funkcij na drugega. Izračun tenzorjev transformacije \eqref{eq:matTrans} baze pa lahko prepustimo učnim algoritmom, kot funkcijo vhoda programa. Tako pridemo do različice \emph{nevronskih programskih interpreterjev} \cite{progInterp}, kot smo napovedali v začetku razdelka.
  
 \section{Kontrolne strukture}
 
-Čeprav je v našem modelu mogoče konstruirati iteratorje s predstavljenimi operatorji, bomo v tem razdelku predstavili kako se naša teorija vpleta v kontrolne strukture imperativnih jezikov. Primer uporabe takšne vpletenosti je implementacija v $\CC$, ki je predstavljena v razdelku \ref{sec:implementacija}.
+Čeprav je v našem modelu mogoče konstruirati iteratorje s predstavljenimi operatorji, bomo v tem razdelku predstavili, kako se naša teorija vpleta v kontrolne strukture imperativnih jezikov. Primer uporabe takšne vpletenosti je implementacija v $\CC$, ki je predstavljena v razdelku \ref{sec:implementacija}.
 
-Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spreminjajo izvršilno drevo programa. Zato jih interpretiramo kot definicije (odsekoma zveznih) zlepkov. Vsaka kontrolna struktura deli prostor parametrov na različne domene znotraj katerih je izvajanje programa venomer enako. Celoten program pa deli prostor vseh mogočih parametrov na končen nabor domen $\{\Omega_i;\quad i=1,\ldots
+Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spreminjajo izvršilno drevo programa. Zato jih interpretiramo kot definicije (odsekoma zveznih) zlepkov. Vsaka kontrolna struktura deli prostor parametrov na različne domene, znotraj katerih je izvajanje programa venomer enako. Celoten program pa deli prostor vseh mogočih parametrov na končni nabor domen $\{\Omega_i;\quad i=1,\ldots
   k\}$. Zato je v splošnem program lahko definiran kot
 \begin{equation}
    \label{eq:zlrprk_splosno}
@@ -1297,7 +1294,7 @@ Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spremi
      P_{n_kk}\circ P_{(n_k-1)k}\circ\ldots P_{1k}(\vec{x});&\quad \vec{x}\in\Omega_k\\
    \end{cases}
  \end{equation}
- Operator $e^\D$ (v neki točki) programa $P$, je seveda odvisen od začetnih parametrov $\vec{x}$, in je izrazljiv kot zlepek znotraj domen $\Omega_i$
+ Operator $e^\D$ (v neki točki) programa $P$ je seveda odvisen od začetnih parametrov $\vec{x}$ in je izrazljiv kot zlepek znotraj domen $\Omega_i$
  \begin{equation}
    \label{eq:Dzlrprk_splosno}
    e^\D P({\vec{x}}) =
@@ -1310,7 +1307,7 @@ Kontrolne strukture direktno ne spreminjajo vrednosti spremenljivk, ampak spremi
  \end{equation}
 
  \begin{izrek}\label{izr:diferentiableOnDomain}
- Vsak program $P\in\dP$, ki vsebuje kontrolne strukture je neskončno-krat odvedljiv na domeni $\Omega=\bigcup\limits_{\forall_i}\interior(\Omega_i)$.
+ Vsak program $P\in\dP$, ki vsebuje kontrolne strukture, je neskončno-krat odvedljiv na domeni $\Omega=\bigcup\limits_{\forall_i}\interior(\Omega_i)$.
  \end{izrek}
  \begin{dokaz}
   Notranjost vsake domene $\Omega_i$ je odprta. Ker je celotna domena $\Omega=\bigcup\limits_{\forall_i}\interior(\Omega_i)$ unija odprtih množic, je posledično odprta tudi sama. Zatorej so vse evaluacije izvršene v eni od odprtih množic, kar efektivno odstrani robove, kjer bi lahko naleteli na težave. Izrek sledi direktno iz dokaza Izreka $\ref{thm:infDif}$ skozi argument $\eqref{eq:inductionStep}$.
@@ -1422,13 +1419,13 @@ $n$ število vejitev znotraj programa.
 
 \noindent Sliki operatorja $e^\D$ in $T_{F\X}$  sta elementa prvotnega programskega prostora $\dP$, in sta lahko komponirani. Zatorej je za $P=p_3\circ p_2\circ p_1$, slednji izraz smiseln
 \begin{equation*}\label{trd:composeOperators}
-P=\Big(p_3\circ e^ \D(p_2)\circ T_{F\X}e^\D(p_1)\Big) \in \dP
+P=\Big(p_3\circ e^ \D(p_2)\circ T_{F\X}e^\D(p_1)\Big) \in \dP.
 \end{equation*}
 
 \noindent Enako velja za vse permutacije uporab operatorjev $e^\D$, $T_{F\X}$ in $id$, kot je razvidno v diagramu Slike $\ref{fig:diagram}$.
 
 \begin{opomba}
-V praksi vedno uporabljamo projekcije operatorja $e^\D$ na nek končen red $n$, tj. $e^\D_n$. Zato moramo biti pazljivi na veljavnost sledeče relacije
+V praksi vedno uporabljamo projekcije operatorja $e^\D$ na neki končni red $n$, tj. $e^\D_n$. Zato moramo biti pazljivi na veljavnost sledeče relacije
 \begin{equation*}
 e^\D_m(P_2)\circ e^\D_n(P_1)=e^\D_k(P_2\circ P_1)\iff 0\le k\le \min(m,n)
 \end{equation*}
@@ -1437,7 +1434,7 @@ ko komponiramo dve sliki operatorjev, ki sta bila projicirana na različna podpr
 
 \chapter{Sklep in nadaljnje delo} \label{ch:zakSklp}
 
-Navdahnjeni s strani podvigov Feynmana \cite{Feynman} in Heavisidea \cite{HeavisideOperational} v fiziki pred nami, samo uporabili operatorski račun na programskih prostorih. S tem smo omogočili sklepanje o analitičnih lastnostih programov preko zgolj algebraičnih prijemov, kar je olajšalo postopek implementacije. Naš doprinos je bil operator komponiranja programov, ki posplošuje tako vnaprejšnji, kot vzvratni način avtomatskega odvajanja poljubnega reda z enim samim operatorjem. Nato smo uporabo izpeljane algebre in operatorskega računa predstavili tako, da smo izračune in manipulacije izvedli na operatorjih samih, preden je bil operator apliciran na konkreten program. 
+Navdahnjeni s strani podvigov Feynmana \cite{Feynman} in Heavisidea \cite{HeavisideOperational} v fiziki pred nami, smo uporabili operatorski račun na programskih prostorih. S tem smo omogočili sklepanje o analitičnih lastnostih programov preko zgolj algebraičnih prijemov, kar je olajšalo postopek implementacije. Naš doprinos je bil operator komponiranja programov, ki posplošuje tako vnaprejšnji, kot vzvratni način avtomatskega odvajanja poljubnega reda z enim samim operatorjem. Nato smo uporabo izpeljane algebre in operatorskega računa predstavili tako, da smo izračune ter manipulacije izvedli na operatorjih samih, preden je bil operator apliciran na konkretni program. 
 
 \emph{Algebraični jezik, ki je predstavljen v našem delu, nadomesti kompleksne pojme s preprostimi izrazi in omogoči formulacijo ustreznih, smiselnih algebraičnih enačb.} 
 
@@ -1445,11 +1442,11 @@ Po takšnem postopku smo izpeljali funkcijske transformacije programov v poljubn
 
 \section{Snovanje novih modelov in arhitektur}
 
-Algebraični jezik, ki smo ga razvili v tem delu, omogoča uporabo ustaljenih prijemov matematične analize na programju. Po tem, ko je metoda izpeljana, pa lahko računsko zahtevnejše dele postopka nadomestimo z učnim algoritmom, ki na podlagi vhoda vrača približno rešitev. Tako smo postopali v razdelku \ref{sec:FunTrans}, kjer smo z našo algebro izpeljali menjavo baze programa. Ob zamenjavi izračuna tenzorja transformacije baze z učnim algoritmom, smo izpeljali postopek ki je ekvivalenten \emph{nevronskim interpreterjem programov} \cite{progInterp}, le da imamo na naš način tudi teoretično utemeljitev postopka. Podobno lahko postopamo tudi pri drugih matematičnih prijemih in tako izpeljemo nove arhitekture in modele globokega učenja.
+Algebraični jezik, ki smo ga razvili v tem delu, omogoča uporabo ustaljenih prijemov matematične analize na programju. Po tem, ko je metoda izpeljana, pa lahko računsko zahtevnejše dele postopka nadomestimo z učnim algoritmom, ki na podlagi vhoda vrača približno rešitev. Tako smo postopali v razdelku \ref{sec:FunTrans}, kjer smo s svojo algebro izpeljali menjavo baze programa. Ob zamenjavi izračuna tenzorja transformacije baze z učnim algoritmom, smo izpeljali postopek, ki je ekvivalenten \emph{nevronskim interpreterjem programov} \cite{progInterp}, le da imamo na svoj način tudi teoretično utemeljitev postopka. Podobno lahko postopamo tudi pri drugih matematičnih prijemih in tako izpeljemo nove arhitekture ter modele globokega učenja.
 
 \section{Druga teoretična poizvedovanja}
 
-Z algebraičnim jezikom, ki smo ga razvili v našem delu, lahko izpeljemo \emph{nevronske tenzorske vrste} \cite{opCalProg}, ki so v tem delu izpuščene, a jih bralec lahko poišče v avtorjevem članku \cite{opCalProg}. Z njimi je dosežena povezava med programi in tenzorskimi vrstami: vsaka tenzorska mreža je nevronska tenzorska vrsta nekega programa. Prav to pa zapira vrzel med matematično analizo in programiranjem, ki smo jo omenili v uvodu. Hkrati pa nudi nov način izražanja nevronskih modelov, ki omogoča teoretičen vpogled v formulirane arhitekture globokega učenja.
+Z algebraičnim jezikom, ki smo ga razvili v svojem delu, lahko izpeljemo \emph{nevronske tenzorske vrste} \cite{opCalProg}, ki so v tem delu izpuščene, a jih bralec lahko poišče v avtorjevem članku \cite{opCalProg}. Z njimi je dosežena povezava med programi in tenzorskimi vrstami: vsaka tenzorska mreža je nevronska tenzorska vrsta nekega programa. Prav to pa zapira vrzel med matematično analizo in programiranjem, ki smo jo omenili v uvodu. Hkrati pa nudi nov način izražanja nevronskih modelov, ki omogoča teoretični vpogled v formulirane arhitekture globokega učenja.
 
 \newpage %dodaj po potrebi, da bo številka strani za Literaturo v Kazalu pravilna!
 \ \\
