@@ -425,7 +425,7 @@ V petem poglavju (\emph{\nameref{ch:opRac}}) na podlagi prej vpeljanih programsk
 Nato razvijemo preslikavo redukcije reda in s tem rešimo problem \emph{avtomatsko odvedljivih programov} \cite{AD2}, saj omogoča implementacije programov, ki operirajo na odvedljivih odvodih drugih programov.
 Z vpeljanimi operatorji pokažemo, da naša teorija uvaja poln (samozadosten) model globokega učenja. Ta model omogoča tak način izražanja programov, da že njihov zapis razgalja njihove lastnosti. Poglavje zaključimo z obravnavo pomena svoje teorije za kontrolne strukture in z napotki za uporabo teorije v praksi.
 
-Diplomsko delo temelji na avtorjevih člankih \cite{opCalProg} \cite{dC++Paper} in delu \cite{dC++}\cite{dC++Man}, kamor bralca usmerimo v zaključnem poglavju (\emph{\nameref{ch:zakSklp}}), v katerem navedemo možnosti, ki jih izpeljana teorija še ponuja.
+Diplomsko delo temelji na avtorjevih člankih \cite{opCalProg,dC++Paper} in delu \cite{dC++,dC++Man}, kamor bralca usmerimo v zaključnem poglavju (\emph{\nameref{ch:zakSklp}}), v katerem navedemo možnosti, ki jih izpeljana teorija še ponuja.
 
 \chapter{Motivacija in ozadje}
 \label{ch:MotivacijaInOzadje}
@@ -674,7 +674,7 @@ V naštetih razlogih vidimo veliko pomanjkljivost algebre algebraičnih tipov:
 
 Globoko učenje je uporaba umetnih nevronskih mrež za učenje nalog. Nevronska mreža je definirana z rekurzivno enačbo
 $$L^{i+1}=\phi_i(W_i\cdot L^i +b_i),$$
-kjer je $L^i$ izhod $i$-tega nivoja, $W_i$ in $b_i$ sta uteži in pristranost (ang. bias), operacija $\cdot$ pa bilinearna operacija (kot denimo tenzorska kontrakcija ali konvolucija), $\phi_i$ pa aktivacijska (ne-linearna) funkcija. Obstaja množica različnih arhitektur \cite{ConvNet}\cite{LSTM}\cite{resNet}, ki so polne po Turingu, če omogočajo rekurzijo \cite{DLbook}. V zadnjih letih se je globoko učenje izkazalo na široki paleti problemov, kot so: prepoznava slik \cite{fasterRCNN}, sledenje \cite{trackNet}, generiranje besedil, govora in slik \cite{genText}, obravnavanje naravnega jezika \cite{NLP}, itd.
+kjer je $L^i$ izhod $i$-tega nivoja, $W_i$ in $b_i$ sta uteži in pristranost (ang. bias), operacija $\cdot$ pa bilinearna operacija (kot denimo tenzorska kontrakcija ali konvolucija), $\phi_i$ pa aktivacijska (ne-linearna) funkcija. Obstaja množica različnih arhitektur \cite{ConvNet,LSTM,resNet}, ki so polne po Turingu, če omogočajo rekurzijo \cite{DLbook}. V zadnjih letih se je globoko učenje izkazalo na široki paleti problemov, kot so: prepoznava slik \cite{fasterRCNN}, sledenje \cite{trackNet}, generiranje besedil, govora in slik \cite{genText}, obravnavanje naravnega jezika \cite{NLP}, itd.
 
 Globoko učenje temelji na multilinearnih transformacijah, ki se dajo zlahka paralelizirati (prva od Backusovih skrbi), kar s pridom izkoriščamo za implementacije na GPU \cite{TensorGPU}. Multilinearne transformacije lahko opišemo s tenzorsko algebro. To sicer omogoča algebraične manipulacije, a potrebni formalizem še ne obstaja v polni obliki \cite{whyDL}.
 
@@ -1240,7 +1240,7 @@ Po izreku \ref{izr:reductionMap}, je $n$-krat odvedljivi $k$-ti odvod programa $
 \end{equation*}
 \end{posledica}   
 
-Torej smo pridobili sposobnost zapisovanja odvedljivih programov, ki operirajo na odvedljivih odvodih drugih programov. To je ključna sposobnost, na pomembnost katere (in pomanjkanje v večini modelov) opozarjajo drugi avtorji \cite{AD1}\cite{AD2}. 
+Torej smo pridobili sposobnost zapisovanja odvedljivih programov, ki operirajo na odvedljivih odvodih drugih programov. To je ključna sposobnost, na pomembnost katere (in pomanjkanje v večini modelov) opozarjajo drugi avtorji \cite{AD1,AD2}. 
 
 \section{Funkcijske transformacije in interpreterji programov}\label{sec:FunTrans}
 
